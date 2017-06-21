@@ -8,7 +8,7 @@ var React = require("react");
 var helpers = require("./utils/helpers");
 
 // Creating the Guest component
-var Guest = React.createClass({
+var Resources = React.createClass({
 
 // full app psuedocode
   // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
@@ -34,7 +34,15 @@ var Guest = React.createClass({
         <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Guest Slayer!</h3> 
           Ready to train? 
         </div> 
-    <div idName=  "guestWorkout"> <p className ="text-center"> pre selected workout here</p></div>
+    <div idName= "links"> <p className ="text-center"> 
+        <ul>
+       <li> <link rel="yoga" href="https://www.yogajournal.com/poses" > </link> instructions for mobility exercises</li>
+       <li> <link rel="crossfit" href="LINK HERE" > </link> instructions for strength exercises </li>
+       <li> <link rel="running" href="LINK HERE" > </link> how to time your runs</li>
+       <li> <link rel="interval-training" href="LINK HERE" > </link>instructions for endurance exercises </li>
+       <li> <link rel="meditaion" href="https://shambhala.org/what-is-meditation/" > </link> Meditation resource </li>
+
+       </ul> </p> </div>
 
 </div>
 
@@ -43,4 +51,4 @@ var Guest = React.createClass({
 });
 
 // Export the component back for use in other files
-module.exports = Guest;
+module.exports = Resources;
