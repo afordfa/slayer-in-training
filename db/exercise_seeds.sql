@@ -1,0 +1,48 @@
+
+
+INSERT INTO Exercises (title, minutes, tags, focus, createdAt, updatedAt)
+VALUES 
+("Sun Salutations", 1, "Mobility, Endurance, Strength", "arms, core, legs", NOW(), NOW()),
+("Standing baby cradle stretch",  1, "Mobility", "legs", NOW(), NOW()),
+("Hamstring stretch/reverse lunge", 1, "Mobility", "legs", NOW(), NOW()),
+("Standing wide leg forward fold", 1, "Mobility", "legs", NOW(), NOW()),
+("Seated one leg forward fold", 1, "Mobility", "legs", NOW(), NOW()),
+("Standing quad stretch", 1, "Mobility", "legs", NOW(), NOW()),
+("Lunge with quad stretch", 1, "Mobility", "legs", NOW(), NOW()),
+("Seated butterfly stretch", 1, "Mobility", "legs", NOW(), NOW()),
+("Pigeon pose hip stretch", 1, "Mobility", "legs", NOW(), NOW()),
+("Lizard pose hip stretch", 1, "Mobility", "legs", NOW(), NOW()),
+("Wall clock shoulder stretch", 1, "Mobility", "arms", NOW(), NOW()),
+("Eagle arms", 1, "Mobility", "arms", NOW(), NOW()),
+("Over the head tricep stretch", 1, "Mobility", "arms", NOW(), NOW()),
+("Hand clasped behind back shoulder stretch", 1, "Mobility", "arms", NOW(), NOW()),
+("Tai chi arm swings", 1, "Mobility", "arms", NOW(), NOW()),
+("Bridge pose", 1, "Mobility", "core", NOW(), NOW()),
+("Cat/cow stretch", 1, "Mobility", "core", NOW(), NOW()),
+("Bow pose", 1, "Mobility", "core", NOW(), NOW()),
+("Locust post", 1, "Mobility", "core", NOW(), NOW()),
+("Jumping Jacks", 1, "Endurance", "legs", NOW(), NOW()),
+("Jump rope", 1, "Endurance", "legs", NOW(), NOW()),
+("High knees", 1, "Endurance", "legs", NOW(), NOW()),
+("Side shuffle", 1, "Endurance", "legs", NOW(), NOW()),
+("Burpees", 1, "Endurance, Strength", "arms, core, legs", NOW(), NOW()),
+("Pushups", 1, "Strength", "arms", NOW(), NOW()),
+("Man makers", 1, "Strength", "arms", NOW(), NOW()),
+("Side plank leg lifts", 1, "Strength", "arms, legs, core", NOW(), NOW()),
+("Down dog jump", 1, "Strength", "arms, core", NOW(), NOW()),
+("Dolphin push ups", 1, "Strength", "arms", NOW(), NOW()),
+("Forearm plank", 1, "Strength", "arms, core", NOW(), NOW()),
+("Squat jumps", 1, "Strength", "legs", NOW(), NOW()),
+("Mountain climbers", 1, "Strength", "arms, legs, core", NOW(), NOW()),
+("Walking lunge", 1, "Strength", "legs", NOW(), NOW()),
+("Full situps", 1, "Strength", "core", NOW(), NOW()),
+("Bicycle crunches", 1, "Strength", "core", NOW(), NOW()),
+("Transverse crunches", 1, "Strength", "core", NOW(), NOW()),
+("Boat pose", 1, "Strength", "core", NOW(), NOW()),
+("Stretch pose (hollow body)", 1, "Strength", "core", NOW(), NOW()),
+("Core planks", 1, "Strength", "arms, core", NOW(), NOW()),
+("Star jumps", 1, "Strength", "legs", NOW(), NOW()),
+("Plank jacks", 1, "Strength", "arms, core, legs", NOW(), NOW());
+
+
+select * from Exercises;

@@ -23,24 +23,9 @@ app.use(express.static("./public"));
 
 // -------------------------------------------------
 
-// Connect to localhost if not a production environment
-if(process.env.MONGODB_URI) {
-  // Gotten using `heroku config | grep MONGODB_URI` command in Command Line
-  mongoose.connect(process.env.MONGODB_URI);
-}
-else{
-  mongoose.connect('mongodb://localhost/test');
-  // mongoose.connect(databaseUri);
-}
-var db = mongoose.connection;
+// Requiring our models for syncing
+var db = require("./models");
 
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
 
 // -------------------------------------------------
 
@@ -51,12 +36,14 @@ app.get("/", function(req, res) {
 
 
 
-
+require("./controllers/exercise-routes.js")(app);
 
 
 // -------------------------------------------------
 
 // Listener
-app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
+db.sequelize.sync({force: false}).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
