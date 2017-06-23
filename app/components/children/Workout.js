@@ -5,7 +5,7 @@ var React = require("react");
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("./utils/helpers");
+var helpers = require("../utils/helpers");
 
 // Creating the Main component
 var Workout = React.createClass({
@@ -25,18 +25,17 @@ var Workout = React.createClass({
   render: function() {
     return (
 
-  <div className= "mainContainer">
-    <div className="jumbotron" style={ {backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: "0px", borderRadius: "25px"} }>
-       <div className="page-header">
-          <h1 className="text-center">Slayer in Training</h1>
-      </div>
-    </div>
-        <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
+      <div>
+        <div className="text-center" idName="subHeader"> 
+          <h3 idName="welcome">
+            Welcome Slayer!
+          </h3> 
           Ready. Set. SLAY!  
         </div> 
-        <div className="text-center"> and here all the workout data will magically appear. buffy help us all </div>
-
-</div>
+        <div className="text-center"> 
+          and here all the workout data will magically appear. buffy help us all 
+        </div>
+      </div>
 
     );
   }

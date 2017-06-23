@@ -5,12 +5,12 @@ var React = require("react");
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("./utils/helpers");
+var helpers = require("../utils/helpers");
 
-// Creating the Main component
-var Main = React.createClass({
+// Creating the Guest component
+var Guest = React.createClass({
 
-// psuedocode
+// full app psuedocode
   // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
   // 2) click guest slay redirect to pre-written workout (3rd wire frame)
   // 3) click login redirect to google authentication
@@ -24,17 +24,24 @@ var Main = React.createClass({
 
   render: function() {
     return (
-        <div className= "mainContainer">
-          <div className="jumbotron" style={ {backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: "0px", borderRadius: "25px"} }>
-            <h1 className="text-center">Slayer in Training</h1>
-          </div>
-          <div>
-            {this.props.children}
-          </div>
+
+      <div>
+        <div className="text-center" idName="subHeader"> 
+          <h3 idName="welcome">
+            Welcome Guest Slayer!
+          </h3> 
+          Ready to train? 
+        </div> 
+        <div idName=  "guestWorkout"> 
+          <p className ="text-center"> 
+            pre selected workout here
+          </p>
         </div>
+      </div>
+
     );
   }
 });
 
 // Export the component back for use in other files
-module.exports = Main;
+module.exports = Guest;

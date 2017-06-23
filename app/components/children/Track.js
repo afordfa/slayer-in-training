@@ -5,7 +5,7 @@ var React = require("react");
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("./utils/helpers");
+var helpers = require("../utils/helpers");
 
 // Creating the Main component
 var Track = React.createClass({
@@ -25,17 +25,33 @@ var Track = React.createClass({
   render: function() {
     return (
 
-  <div className= "mainContainer">
-    <div className="jumbotron" style={ {backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: "0px", borderRadius: "25px"} }>
-       <div className="page-header">
-          <h1 className="text-center">Slayer in Training</h1>
+      <div>
+        <div idName=  "distance"> 
+          <p className ="text-center"> 
+            Distance [drop down here]
+          </p>
+        </div>
+        <div idName=  "date"> 
+          <p className ="text-center"> 
+            bootstrap date here 
+          </p>
+        </div>
+        <div idName=  "time"> 
+          <p className ="text-center" idName = "minutes"> 
+            Minutes [drop down here]
+          </p> 
+          <p className ="text-center" idName = "seconds"> 
+            Seconds [drop down here]
+          </p>
+        </div>
+        <div>
+          <p className ="text-center">
+            <button className = "btn-danger"> 
+              add new run 
+            </button> 
+          </p>
+        </div>
       </div>
-    </div>
-    <div idName=  "distance"> <p className ="text-center"> Distance [drop down here]</p></div>
-    <div idName=  "date"> <p className ="text-center"> bootstrap date here </p></div>
-    <div idName=  "time"> <p className ="text-center" idName = "minutes"> Minutes [drop down here]</p> <p className ="text-center" idName = "seconds"> Seconds [drop down here]</p></div>
-    <p className ="text-center"><button className = "btn-danger"> add new run </button> </p>
-    </div>
     );
   }
 });

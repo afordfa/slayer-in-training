@@ -5,12 +5,12 @@ var React = require("react");
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("./utils/helpers");
+var helpers = require("../utils/helpers");
 
-// Creating the Guest component
-var Guest = React.createClass({
+// Creating the Main component
+var Welcome = React.createClass({
 
-// full app psuedocode
+// psuedocode
   // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
   // 2) click guest slay redirect to pre-written workout (3rd wire frame)
   // 3) click login redirect to google authentication
@@ -25,22 +25,20 @@ var Guest = React.createClass({
   render: function() {
     return (
 
-  <div className= "mainContainer">
-    <div className="jumbotron" style={ {backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: "0px", borderRadius: "25px"} }>
-       <div className="page-header">
-          <h1 className="text-center">Slayer in Training</h1>
-      </div>
-    </div>
-        <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Guest Slayer!</h3> 
+      <div>
+        <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
           Ready to train? 
         </div> 
-    <div idName=  "guestWorkout"> <p className ="text-center"> pre selected workout here</p></div>
-
-</div>
+        <div idName=  "howLong"> <p className ="text-center"> How long can you train today? [time drop down here]</p></div>
+        <div idName= "workoutType"> <p className ="text-center"> What's your focus, Slayer? [drop down here]</p></div>
+        <p className ="text-center"><button className = "btn-danger"> Ready. Set. Slay!</button> </p>
+        <p className ="text-center"><button className = "btn-danger"> Track Progress</button> </p>
+        <div idName= "track"> <p className ="text-center"> Better, faster, stronger. Outrun the demons. </p></div> 
+      </div>
 
     );
   }
 });
 
 // Export the component back for use in other files
-module.exports = Guest;
+module.exports = Welcome;
