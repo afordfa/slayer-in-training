@@ -8,7 +8,7 @@ var React = require("react");
 var helpers = require("../utils/helpers");
 
 // Creating the Guest component
-var Guest = React.createClass({
+var Timer = React.createClass({
 
 // full app psuedocode
   // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
