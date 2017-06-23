@@ -32,6 +32,9 @@ module.exports = (
   <Router history={hashHistory}>
 
     <Route path="/" component={Main} />
+    <Route path="guest" component={Guest} />
+    <Route path="modal" component={Modal} />
     <Route path="resources" component={Resources} />
+    <Route path="track" component={Track} />
   </Router>
 );
