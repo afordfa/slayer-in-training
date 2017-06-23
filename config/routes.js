@@ -26,6 +26,7 @@ var Resources = require("../app/components/children/Resources");
 var Track = require("../app/components/children/Track");
 var Welcome = require("../app/components/children/Welcome");
 var Workout = require("../app/components/children/Workout");
+var Timer = require("../app/components/children/Timer");
 
 // Export the Routes
 module.exports = (
@@ -39,7 +40,8 @@ module.exports = (
 	    <Route path="modal" component={Modal} />
 	    <Route path="resources" component={Resources} />
 	    <Route path="track" component={Track} />
-	    <Route path="workout" component={Workout} />
+	    <Route path="workout" component={Workout}/>
+		<Route path="timer" component={Timer} />
 	</Route>
   </Router>
 );

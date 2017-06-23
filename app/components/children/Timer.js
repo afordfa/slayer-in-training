@@ -8,7 +8,7 @@ var React = require("react");
 var helpers = require("../utils/helpers");
 
 // Creating the Guest component
-var Guest = React.createClass({
+var Timer = React.createClass({
 
 // full app psuedocode
   // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
@@ -25,18 +25,10 @@ var Guest = React.createClass({
   render: function() {
     return (
 
-      <div>
-        <div className="text-center" idName="subHeader"> 
-          <h3 idName="welcome">
-            Welcome Potential Slayer!
-          </h3> 
-          Ready to train? 
-        </div> 
-        <div idName=  "guestWorkout"> 
-          <p className ="text-center"> 
-            pre selected workout here
-          </p>
-        </div>
+      <div className="text-center">
+        <p className ="text-center"><button className = "btn-danger"> Time your run or AMRP</button> </p>
+        <p className ="text-center"><button className = "btn-danger"> Meditation countdown</button> </p>
+        <p className="text-center">Here there be a fancy timer that counts up or down.</p>
       </div>
 
     );
@@ -44,4 +36,4 @@ var Guest = React.createClass({
 });
 
 // Export the component back for use in other files
-module.exports = Guest;
+module.exports = Timer;
