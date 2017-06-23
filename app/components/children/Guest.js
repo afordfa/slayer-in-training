@@ -28,7 +28,7 @@ var Guest = React.createClass({
       <div>
         <div className="text-center" idName="subHeader"> 
           <h3 idName="welcome">
-            Welcome Guest Slayer!
+            Welcome Potential Slayer!
           </h3> 
           Ready to train? 
         </div> 
