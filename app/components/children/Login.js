@@ -27,9 +27,10 @@ var Login = React.createClass({
 
       <div>
           <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Guest Slayer!</h3> 
-            Ready to train? 
+            <p>Ready to train?</p> 
+            <p>Login logic</p> 
           </div> 
-Login logic 
+
         </div>
 
     );
