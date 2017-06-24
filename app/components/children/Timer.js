@@ -19,8 +19,6 @@ var Timer = React.createClass({
     newState[event.target.id] = event.target.value;
     this.setState(newState);
     this.setState( {stopTime: this.state.duration * 60} ) 
-    console.log(this.state.duration);
-    console.log("timer type here " + this.state.timerType);
   },
 
   updateTimer: function(seconds) {

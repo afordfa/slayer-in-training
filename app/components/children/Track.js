@@ -6,57 +6,100 @@ var React = require("react");
 
 // Helper for making AJAX requests to our API
 var helpers = require("../utils/helpers");
+var Times = require("./track/Times.js")
 
 // Creating the Main component
 var Track = React.createClass({
 
-// psuedocode
-  // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
-  // 2) click guest slay redirect to pre-written workout (3rd wire frame)
-  // 3) click login redirect to google authentication
-  // 4) google login is approved (or error message thrown)
-  // 5) login approved: redirect to welcome slayer (second wire frame)
-  // 6) if user chooses time, style and clicks "ready to slay"- workout is generated from database and displayed (3rd wire frame)
-  // 7) if user chooses track redirect to tracker page (4th wire frame)
-  // 8) add a button on each page (besides login) the reditects to a workout resources list (for now straight up weblinks, will complie ASAP)
+// default to displaying all run times sorted by date
+// when distance is selected, update table to only show those run times (sorted by date still)
+// when run-time is added, keep table limited to that distance
+// add button to switch table back to all run times
 
-  // Here we render the function
+
+
+  getInitialState: function() {
+    return { times: [], distance: "1 mile", minutes: 0, seconds: 0 };
+  },
+  getTimes: function(type) {
+    helpers.getTimes(type).then((res) => {
+      this.setState({ times: res.data });
+    });
+  },
+
+  handleChange: function(event) {
+    var newState = {};
+    newState[event.target.id] = event.target.value;
+    this.setState(newState);
+  },
+
+
+  handleAdd: function(){
+    console.log("test");
+    //this needs to add data to the database
+  },
+
 
   render: function() {
     return (
-
       <div>
         <div idName=  "distance"> 
-          <p className ="text-center"> 
-            Distance <select>
-                <option >1</option>
-                <option >2</option>
-                <option >3</option>
-              </select>
-          </p>
+          <form>
+            <div className="form-group">
+              <h4 className="">
+                <strong>Distance</strong>
+              </h4>
+              <div>
+                <select 
+                name="distance"
+                value={this.state.distance}
+                id="distance"
+                onChange={this.handleChange}
+                >
+                  <option value="1">1 mile</option>
+                  <option value="2">2 miles</option>
+                  <option value="5K">5K</option>
+                </select>
+              </div>   
+            </div>
+          </form>       
         </div>
         <div idName=  "date"> 
-          <p className ="text-center"> 
-            bootstrap date here 
-          </p>
-        </div>
-        <div className ="text-center" idName=  "time"> 
-            Minutes <select>
-                <option >1</option>
-                <option >2</option>
-                <option >3</option>
-              </select>
+          <div className ="text-center"> 
 
-            Seconds <select>
-                <option >1</option>
-                <option >2</option>
-                <option >3</option>
-              </select>
+        {/*Here we bring in the child-element to render the table of times*/}
+            <Times />
+          }
+          </div>
+        </div>
+        <div className ="text-center" idName=  "minutes"> 
+
+      {/*I HAVE NO IDEA HOW TO GET THESE TO APPEAR SIDE-BY-SIDE!!! */}
+              <input
+                type="number"
+                min="1"
+                value={this.state.minutes}
+                className="form-control"
+                id="minutes"
+                onChange={this.handleChange}
+                required
+              />
+
+              <input
+                type="number"
+                min="0"
+                max="59"
+                value={this.state.seconds}
+                className="form-control"
+                id="seconds"
+                onChange={this.handleChange}
+                required
+              />
 
         </div>
         <div>
           <p className ="text-center">
-            <button className = "btn-danger"> 
+            <button className = "btn-danger" onClick={this.handleAdd}> 
               add new run 
             </button> 
           </p>
@@ -65,17 +108,6 @@ var Track = React.createClass({
     );
   }
 });
-// googled code for a table. no idea if it will work ha. 
-class Table extends React.Component {
-  render() {
-    return (
-      <BootstrapTable data={ products }>
-        <TableHeaderColumn dataField='id' isKey>Distance</TableHeaderColumn>
-        <TableHeaderColumn dataField='name'>Time</TableHeaderColumn>
-      </BootstrapTable>
-    );
-  }
-}
 
 
 // Export the component back for use in other files
