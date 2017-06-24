@@ -1,5 +1,6 @@
 // Include React
 var React = require("react");
+import {Link} from "react-router";
 
 // Here we include all of the sub-components
 
@@ -22,6 +23,12 @@ var Guest = React.createClass({
 
   // Here we render the function
 
+    loginPage: function() {
+    console.log("test"); 
+    window.location.href = "../Login"
+
+  },
+
   render: function() {
     return (
 
@@ -37,6 +44,11 @@ var Guest = React.createClass({
             pre selected workout here
           </p>
         </div>
+      <p className ="text-center"> 
+        <Link to={"login"}>
+          <button className = "btn-danger"> Signup to Slay!</button>
+          </Link>
+         </p>
       </div>
 
     );
