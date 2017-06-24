@@ -14,7 +14,7 @@ var Timer = React.createClass({
 
 
   getInitialState: function() {
-    return { time: 0, duration: 1, stopTime: 60, timerType: "down" };
+    return { time: 0, duration: 1, stopTime: 60, timerType: "amrp" };
     this.updateTimer = this.updateTimer.bind(this);
   },
 
@@ -67,9 +67,9 @@ var Timer = React.createClass({
               id="timerType"
               onChange={this.handleChange}
               >
-                <option value="down">AMRP (Count Down)</option>
-                <option value="down">Meditation (Count Down)</option>
-                <option value="up">Run Timer (Count Up)</option>
+                <option value="amrp">AMRP (Count Down)</option>
+                <option value="meditate">Meditation (Count Down)</option>
+                <option value="run">Run Timer (Count Up)</option>
               </select>
             </div>
           </form>

@@ -7,29 +7,16 @@ var Clock = React.createClass({
 
 
   getInitialState: function() {
-    return { time: "", intervalId: this.props.seconds, stopTime: this.props.seconds, timer: "" };
+    return { time: 0, stopTime: this.props.seconds, time: 0 };
   },
 
   handleStart: function() {
-    console.log(this.state.duration);
+    // console.log(this.state.duration);
     var newStop = this.props.seconds;
     this.setState({stopTime: newStop});
-    this.setState ({timer: setInterval(this.count, 1000)})
-    console.log(this.props.seconds);
-    console.log(this.state.stopTime);
-  },
-
-
-  count: function() {
-
-    // DONE: increment time by 1, remember we cant use "this" here.
-    var changeTime = this.stopTime--;
-    this.setState({stopTime: changeTime });
-    // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
-    //       and save the result in a variable.
-    var converted = this.convert(this.stopTime);
-    console.log(converted);
-
+    this.timer = setInterval(this.tickDown, 1000)
+    // console.log(this.props.seconds);
+    // console.log(this.state.stopTime);
   },
 
 
@@ -38,18 +25,33 @@ var Clock = React.createClass({
     console.log("test");
     var audio = new Audio('sounds/dingdong.wav');
     audio.play(); 
-    clearInterval(this.intervalId);
+    clearInterval(this.timer);
   
 
   },
 
 
-  // tickDown: function () {
-  //   console.log("help me");
-  //   this.setState ({intervalId: setInterval(this.count, 1000)} );
-  //   console.log(this.state.time);
-  //   // this.props.handleUpdate(this.state.time);
-  // },
+
+  // tickUp () {
+  //   this.setState({ time: Date.now() - this.startTime })
+  // }
+
+
+  tickDown: function () {
+    console.log("help me");
+    // this.setState({ time: Date.now() - this.stopTime })
+    console.log("first " + this.state.stopTime);
+    var changeTime = --this.state.stopTime;
+    this.setState({stopTime: changeTime });
+    // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
+    //       and save the result in a variable.
+    // var converted = this.convert(this.stopTime);
+    console.log(this.state.stopTime); 
+
+
+  },
+
+
 
   convert: function (seconds) {
     // const seconds = Math.round(mSec / 1000)
@@ -65,15 +67,17 @@ var Clock = React.createClass({
     return (
       <div>
         <span className ="text-center">
-          <button className = "btn-danger" onClick={this.handleStart}> 
+          <button className = "btn-danger" onClick={this.handleStart}
+          > 
             START
           </button> 
-          <button className = "btn-danger" onClick={this.handleStop}> 
+          <button className = "btn-danger" onClick={this.handleStop}
+          > 
             STOP
           </button> 
         </span>
         <div>
-           <span>{this.convert(this.props.seconds)}</span>
+           <span>{this.convert(this.state.stopTime)}</span>
         </div>
       </div>
     );
