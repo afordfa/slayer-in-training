@@ -21,12 +21,13 @@ var IndexRoute = router.IndexRoute;
 // Reference the high-level components
 var Main = require("../app/components/Main");
 var Guest = require("../app/components/children/Guest");
-var Modal = require("../app/components/Modal");
+var Modal = require("../app/components/children/Modal");
 var Resources = require("../app/components/children/Resources");
 var Track = require("../app/components/children/Track");
 var Welcome = require("../app/components/children/Welcome");
 var Workout = require("../app/components/children/Workout");
 var Timer = require("../app/components/children/Timer");
+var Login = require("../app/components/children/Login");
 
 // Export the Routes
 module.exports = (
@@ -40,8 +41,9 @@ module.exports = (
 	    <Route path="modal" component={Modal} />
 	    <Route path="resources" component={Resources} />
 	    <Route path="track" component={Track} />
-	    <Route path="workout" component={Workout}/>
+	    <Route path="workout" component={Workout} />
 		<Route path="timer" component={Timer} />
+		<Route path="login" component={Login} />
 	</Route>
   </Router>
 );

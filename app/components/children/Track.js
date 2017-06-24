@@ -28,7 +28,11 @@ var Track = React.createClass({
       <div>
         <div idName=  "distance"> 
           <p className ="text-center"> 
-            Distance [drop down here]
+            Distance <select>
+                <option >1</option>
+                <option >2</option>
+                <option >3</option>
+              </select>
           </p>
         </div>
         <div idName=  "date"> 
@@ -36,13 +40,19 @@ var Track = React.createClass({
             bootstrap date here 
           </p>
         </div>
-        <div idName=  "time"> 
-          <p className ="text-center" idName = "minutes"> 
-            Minutes [drop down here]
-          </p> 
-          <p className ="text-center" idName = "seconds"> 
-            Seconds [drop down here]
-          </p>
+        <div className ="text-center" idName=  "time"> 
+            Minutes <select>
+                <option >1</option>
+                <option >2</option>
+                <option >3</option>
+              </select>
+
+            Seconds <select>
+                <option >1</option>
+                <option >2</option>
+                <option >3</option>
+              </select>
+
         </div>
         <div>
           <p className ="text-center">

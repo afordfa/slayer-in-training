@@ -1,6 +1,7 @@
 
 var React = require("react");
 
+
 import Modal, {closeStyle} from 'simple-react-modal'
  
 export default class App extends React.Component{
@@ -40,3 +41,5 @@ export default class App extends React.Component{
     )
   }
 }
+
+module.exports = Modal;
