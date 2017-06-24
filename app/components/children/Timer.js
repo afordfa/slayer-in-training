@@ -1,5 +1,7 @@
-// Include React
+
 var React = require("react");
+var convertTime = require("./convert-time");
+var Clock = require("./timer/Clock.js")
 
 // Here we include all of the sub-components
 
@@ -10,30 +12,79 @@ var helpers = require("../utils/helpers");
 // Creating the Guest component
 var Timer = React.createClass({
 
-// full app psuedocode
-  // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
-  // 2) click guest slay redirect to pre-written workout (3rd wire frame)
-  // 3) click login redirect to google authentication
-  // 4) google login is approved (or error message thrown)
-  // 5) login approved: redirect to welcome slayer (second wire frame)
-  // 6) if user chooses time, style and clicks "ready to slay"- workout is generated from database and displayed (3rd wire frame)
-  // 7) if user chooses track redirect to tracker page (4th wire frame)
-  // 8) add a button on each page (besides login) the reditects to a workout resources list (for now straight up weblinks, will complie ASAP)
 
-  // Here we render the function
+  getInitialState: function() {
+    return { time: 0, duration: 1, stopTime: 60, timerType: "down" };
+    this.updateTimer = this.updateTimer.bind(this);
+  },
+
+
+  // // This function will respond to the user input
+  handleChange(event) {
+    // Here we create syntax to capture any change in text to the query terms (pre-search).
+    // See this Stack Overflow answer for more details:
+    // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
+    var newState = {};
+    newState[event.target.id] = event.target.value;
+    this.setState(newState);
+    this.setState( {stopTime: this.state.duration * 60} ) 
+    console.log(this.state.duration);
+  },
+
+  updateTimer: function(seconds) {
+    this.setState ({ duration: seconds / 60 })
+  },
 
   render: function() {
     return (
-
       <div className="text-center">
-        <p className ="text-center"><button className = "btn-danger"> Time your run or AMRP</button> </p>
-        <p className ="text-center"><button className = "btn-danger"> Meditation countdown</button> </p>
-        <p className="text-center">Here there be a fancy timer that counts up or down.</p>
+        <div className="panel-body text-center">
+          <form>
+            <div className="form-group">
+              <h4 className="">
+                <strong>Minutes</strong>
+              </h4>
+              {/*
+                  I DON'T KNOW HOW TO MAKE THIS INPUT NARROWER! PLEASE MAKE IT PRETTY!!!!
+              */}
+              <input
+
+                type="number"
+                min="1"
+                value={this.state.duration}
+                className="form-control"
+                id="duration"
+                onChange={this.handleChange}
+                required
+              />
+
+              <h4>
+                <strong>Time Type</strong>
+              </h4>
+              <select 
+              name="timers"
+              value={this.state.timerType}
+              id="timerType"
+              onChange={this.handleChange}
+              >
+                <option value="down">AMRP (Count Down)</option>
+                <option value="down">Meditation (Count Down)</option>
+                <option value="up">Run Timer (Count Up)</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+        <p>
+          Here there be a fancy timer that counts up or down.
+        </p>
+        <Clock seconds= {this.state.duration * 60} timeType = {this.state.timerType} handleUpdate={this.updateTimer} />
+
       </div>
 
     );
   }
-});
+})
 
 // Export the component back for use in other files
 module.exports = Timer;
