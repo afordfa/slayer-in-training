@@ -44,7 +44,8 @@ var Clock = React.createClass({
   tickDown: function () {
     if(this.state.stopTime > 0) {
       //this is set to count by 10's for testing. Uncomment the next line to count by 1's 
-      var changeTime = --this.state.stopTime
+      var changeTime = this.state.stopTime - 10;
+      // var changeTime = --this.state.stopTime
       this.setState({stopTime: changeTime });
     } else if (this.props.timerType == "amrp") {
       var audio = new Audio('sounds/churchBell.wav');
