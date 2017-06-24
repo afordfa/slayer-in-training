@@ -2,7 +2,6 @@
 var React = require("react");
 
 
-// This is the Form, our main component. It includes the banner and form element
 var Clock = React.createClass({
 
 
@@ -11,50 +10,60 @@ var Clock = React.createClass({
   },
 
   handleStart: function() {
-    // console.log(this.state.duration);
+    console.log("props type: " + this.props.timerType);
+    clearInterval(this.timer);
     var newStop = this.props.seconds;
     this.setState({stopTime: newStop});
+    if (this.props.timerType == "run") {
+      this.setState({stopTime: 0 });
+      this.timer = setInterval(this.tickUp, 1000);
+    } else {
     this.timer = setInterval(this.tickDown, 1000)
-    // console.log(this.props.seconds);
-    // console.log(this.state.stopTime);
+    }
   },
 
 
 
   handleStop: function() {
     console.log("test");
-    var audio = new Audio('sounds/dingdong.wav');
-    audio.play(); 
     clearInterval(this.timer);
-  
+  },
+
+
+  tickUp: function () {
+    //this is set to count by 10's for testing. Uncomment the next line to count by 1's 
+    var changeTime = this.state.stopTime + 10
+    // var changeTime = ++this.state.stopTime;
+    this.setState({stopTime: changeTime });
+    console.log(this.state.stopTime); 
+       
 
   },
 
 
-
-  // tickUp () {
-  //   this.setState({ time: Date.now() - this.startTime })
-  // }
-
-
   tickDown: function () {
-    console.log("help me");
-    // this.setState({ time: Date.now() - this.stopTime })
-    console.log("first " + this.state.stopTime);
-    var changeTime = --this.state.stopTime;
-    this.setState({stopTime: changeTime });
-    // DONE: Get the current time, pass that into the stopwatch.timeConverter function,
-    //       and save the result in a variable.
-    // var converted = this.convert(this.stopTime);
-    console.log(this.state.stopTime); 
-
-
+    if(this.state.stopTime > 0) {
+      //this is set to count by 10's for testing. Uncomment the next line to count by 1's 
+      var changeTime = --this.state.stopTime
+      this.setState({stopTime: changeTime });
+    } else if (this.props.timerType == "amrp") {
+      var audio = new Audio('sounds/churchBell.wav');
+      audio.play(); 
+      clearInterval(this.timer);
+    } else if (this.props.timerType == "meditate") {
+      var audio = new Audio('sounds/chime2.wav');
+      audio.play(); 
+      clearInterval(this.timer);
+    } else {
+      var audio = new Audio('sounds/birds1.wav');
+      audio.play(); 
+      clearInterval(this.timer);      
+    }      
   },
 
 
 
   convert: function (seconds) {
-    // const seconds = Math.round(mSec / 1000)
     let minutes = Math.floor(seconds / 60)
     let sec = seconds % 60
     minutes = minutes < 10 ? `0${minutes}` : `${minutes}`
@@ -62,7 +71,7 @@ var Clock = React.createClass({
     return `${minutes}:${sec}`
   }, 
 
-  // Here we descibe this component's render method
+  
   render: function() {
     return (
       <div>

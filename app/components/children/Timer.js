@@ -1,15 +1,9 @@
 
 var React = require("react");
-var convertTime = require("./convert-time");
 var Clock = require("./timer/Clock.js")
-
-// Here we include all of the sub-components
-
-
-// Helper for making AJAX requests to our API
 var helpers = require("../utils/helpers");
 
-// Creating the Guest component
+
 var Timer = React.createClass({
 
 
@@ -21,14 +15,12 @@ var Timer = React.createClass({
 
   // // This function will respond to the user input
   handleChange(event) {
-    // Here we create syntax to capture any change in text to the query terms (pre-search).
-    // See this Stack Overflow answer for more details:
-    // http://stackoverflow.com/questions/21029999/react-js-identifying-different-inputs-with-one-onchange-handler
     var newState = {};
     newState[event.target.id] = event.target.value;
     this.setState(newState);
     this.setState( {stopTime: this.state.duration * 60} ) 
     console.log(this.state.duration);
+    console.log("timer type here " + this.state.timerType);
   },
 
   updateTimer: function(seconds) {
@@ -74,11 +66,7 @@ var Timer = React.createClass({
             </div>
           </form>
         </div>
-
-        <p>
-          Here there be a fancy timer that counts up or down.
-        </p>
-        <Clock seconds= {this.state.duration * 60} timeType = {this.state.timerType} handleUpdate={this.updateTimer} />
+        <Clock seconds= {this.state.duration * 60} timerType = {this.state.timerType} handleUpdate={this.updateTimer} />
 
       </div>
 

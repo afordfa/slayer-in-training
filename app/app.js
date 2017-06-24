@@ -6,9 +6,5 @@ var ReactDOM = require("react-dom");
 var routes = require("../config/routes");
 
 
-// Include the Form Component
-var Form = require("./components/children/timer/Clock");
-
-
 // Renders the contents according to the route page.
 ReactDOM.render(routes, document.getElementById("app"));
