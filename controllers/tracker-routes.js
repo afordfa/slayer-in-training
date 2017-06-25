@@ -18,5 +18,14 @@ module.exports = function(app) {
       res.json(dbTracker);
     });
   });
+
+//for testing only
+  app.get("/api/tracker", function(req, res) {
+    
+    db.Tracker.findAll({}).then(function(dbTracker) {
+      console.log(dbTracker);
+      res.json(dbTracker);
+    });
+  });  
 }
 
