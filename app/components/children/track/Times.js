@@ -1,41 +1,75 @@
-// Include React
-var React = require("react");
+const React = require('react');
+const {Table, Column, Cell} = require('fixed-data-table');
 
-
-var Times = React.createClass({
-
-
-  getInitialState: function() {
-    return { };
-  },
-
-  
-
-  render: function() {
+class MyTextCell extends React.Component {
+  render() {
+    const {rowIndex, field, data, ...props} = this.props;
     return (
-      <div>
-        {/*eventually fill this in with real data from SQL*/}
-        <table>
-          <tr>
-            <th>Date</th>
-            <th>Distance</th> 
-            <th>Time</th>
-          </tr>
-          <tr>
-            <td>6/15/17</td>
-            <td>1 mile</td> 
-            <td>8:23</td>
-          </tr>
-          <tr>
-            <td>6/17/17</td>
-            <td>2 miles</td> 
-            <td>15:34</td>
-          </tr>
-        </table>
-      </div>
+      <Cell {...props}>
+        {data[rowIndex][field]}
+      </Cell>
     );
   }
-});
+}
 
-// Export the component back for use in other files
-module.exports = Times;
+class MyLinkCell extends React.Component {
+  render() {
+    const {rowIndex, field, data, ...props} = this.props;
+    const link = data[rowIndex][field];
+    return (
+      <Cell {...props}>
+        <a href={link}>{link}</a>
+      </Cell>
+    );
+  }
+}
+
+class Track extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      myTableData: [
+        {name: 'Rylan', email: 'Angelita_Weimann42@gmail.com'},
+        {name: 'Amelia', email: 'Dexter.Trantow57@hotmail.com'},
+        {name: 'Estevan', email: 'Aimee7@hotmail.com'},
+        {name: 'Florence', email: 'Jarrod.Bernier13@yahoo.com'},
+        {name: 'Tressa', email: 'Yadira1@hotmail.com'},
+      ],
+    };
+  }
+
+  render() {
+    return (
+      <Table
+        rowsCount={this.state.myTableData.length}
+        rowHeight={50}
+        headerHeight={50}
+        width={1000}
+        height={500}
+        >
+        <Column
+          header={<Cell>Name</Cell>}
+          cell={
+            <MyTextCell
+              data={this.state.myTableData}
+              field="name"
+            />
+          }
+          width={200}
+        />
+        <Column
+          header={<Cell>Email</Cell>}
+          cell={
+            <MyLinkCell
+              data={this.state.myTableData}
+              field="email"
+            />
+          }
+          width={200}
+        />
+      </Table>
+    );
+  }
+}
+module.exports = Track;
