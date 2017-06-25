@@ -1,6 +1,6 @@
 // Inclue the React library
 var React = require("react");
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 // Include the react-router module
 // var router = require("react-router");
@@ -12,8 +12,8 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 // Here where we can pass in some configuration as props
 // var Router = router.Router;
 
-// Include the hashHistory prop to handle routing client side without a server
-// https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#hashhistory
+// Include the browserHistory prop to handle routing client side without a server
+// https://github.com/ReactTraining/react-router/blob/master/docs/guides/Histories.md#browserHistory
 // var browserHistory = router.browserHistory;
 
 // Include the IndexRoute (catch-all route)
@@ -34,7 +34,7 @@ var Login = require("../app/components/children/Login");
 module.exports = (
 
   // The high level component is the Router component
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
 
     <Route path="/" component={Main}>
 	    <Route path="welcome" component={Welcome} />

@@ -26,16 +26,16 @@ var db = require("./models");
 
 
 // -------------------------------------------------
+require("./controllers/exercise-routes.js")(app);
+require("./controllers/tracker-routes.js")(app);
 
 // Main "/" Route. This will redirect the user to our rendered React application
-app.get("/", function(req, res) {
+app.get("*", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 
 
 
-require("./controllers/exercise-routes.js")(app);
-require("./controllers/tracker-routes.js")(app);
 
 
 
