@@ -1,5 +1,6 @@
 // Include React
 var React = require("react");
+import {Link} from "react-router";
 
 // Here we include all of the sub-components
 
@@ -26,9 +27,10 @@ var Resources = React.createClass({
     return (
 
       <div>
-          <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Guest Slayer!</h3> 
-            Ready to train? 
-          </div> 
+        <div className ="text-center"> 
+           What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
+           We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
+        </div>   
           <div idName= "links"> 
             <p className ="text-center"> 
               <ul>
@@ -40,6 +42,7 @@ var Resources = React.createClass({
               </ul> 
             </p> 
           </div>
+        
         </div>
 
     );

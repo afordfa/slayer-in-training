@@ -40,15 +40,31 @@ var Guest = React.createClass({
           Ready to train? 
         </div> 
         <div idName=  "guestWorkout"> 
-          <p className ="text-center"> 
-            pre selected workout here
-          </p>
+          <div className ="text-center"> 
+           <h1> Sample Full Buffy Workout</h1>
+            <ul className ="text-center">   
+              <li>Standing Side Stretch (Mobility) </li>
+              <li>3 Sun Salutations (Mobility)</li> 
+              <li>Standing Baby Cradle Hip Stretch (Mobility)</li>
+              <li>5 Minute AMRP: 10 push-ups, 15 sit-ups, 10 squats, 20 Bicycle Crunches, 10 Jump Squats (Strength)</li>
+              <li>5 minutes Walk or Run (Endurance)</li>
+              <li>5 minute Breath Count Meditation (inhale for count of 6, hold for 2, exhale 6, hold 2)</li> 
+            </ul>
+          </div>
         </div>
-      <p className ="text-center"> 
-        <Link to={"login"}>
-          <button className = "btn-danger"> Signup to Slay!</button>
-          </Link>
-         </p>
+          <p className ="text-center"> 
+           Like what you slayed? Join the Slayer Army!  <br></br>
+             <Link to={"login"}>
+               <button className = "btn-danger"> Signup to Slay!</button>
+             </Link>
+          </p>
+          <p className ="text-center"> 
+           What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
+           We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
+             <Link to={"resources"}>
+               <button className = "btn-danger"> Workout Resources</button>
+             </Link>
+          </p>            
       </div>
 
     );
