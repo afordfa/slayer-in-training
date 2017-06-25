@@ -23,11 +23,11 @@ var Guest = React.createClass({
 
   // Here we render the function
 
-    loginPage: function() {
-    console.log("test"); 
-    window.location.href = "../Login"
+  //   loginPage: function() {
+  //   console.log("test"); 
+  //   window.location.href = "../Login"
 
-  },
+  // },
 
   render: function() {
     return (
