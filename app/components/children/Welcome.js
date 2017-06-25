@@ -1,5 +1,6 @@
 // Include React
 var React = require("react");
+import {Link} from "react-router";
 
 // Here we include all of the sub-components
 
@@ -22,6 +23,8 @@ var Welcome = React.createClass({
 
   // Here we render the function
 
+ /* function for workout generation. oh boy. */
+
   render: function() {
     return (
 
@@ -31,8 +34,17 @@ var Welcome = React.createClass({
         </div> 
         <div idName=  "howLong"> <p className ="text-center"> How long can you train today? [time drop down here]</p></div>
         <div idName= "workoutType"> <p className ="text-center"> What's your focus, Slayer? [drop down here]</p></div>
-        <p className ="text-center"><button className = "btn-danger"> Ready. Set. Slay!</button> </p>
-        <p className ="text-center"><button className = "btn-danger"> Track Progress</button> </p>
+        <p className ="text-center">
+          <Link to={"workout"}>
+          
+            <button className = "btn-danger"> Ready. Set. Slay!</button> 
+          </Link>
+        </p>
+        <p className ="text-center">
+          <Link to={"track"}> 
+            <button className = "btn-danger"> Track Progress</button>
+          </Link>  
+        </p>
         <div idName= "track"> <p className ="text-center"> Better, faster, stronger. Outrun the demons. </p></div> 
       </div>
 
