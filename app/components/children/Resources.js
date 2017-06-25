@@ -42,7 +42,11 @@ var Resources = React.createClass({
               </ul> 
             </p> 
           </div>
-        
+           <p className ="text-center"> 
+             <Link to={"login"}>
+               <button className = "btn-danger"> Ready to Slay</button>
+             </Link>
+          </p>           
         </div>
 
     );
