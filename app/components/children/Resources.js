@@ -21,26 +21,41 @@ var Resources = React.createClass({
   // 8) add a button on each page (besides login) the reditects to a workout resources list (for now straight up weblinks, will complie ASAP)
 
   // Here we render the function
+  // <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Guest Slayer!</h3> 
+  //   Ready to train? 
+  // </div>
 
   render: function() {
     return (
 
-      <div>
-          <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Guest Slayer!</h3> 
-            Ready to train? 
-          </div> 
+      <div className="resource-container">   
           <div idName= "links"> 
-            <p className ="text-center"> 
-              <ul>
-                <li> <link rel="yoga" href="https://www.yogajournal.com/poses" > </link> instructions for mobility exercises</li>
-                <li> <link rel="crossfit" href="LINK HERE" > </link> instructions for strength exercises </li>
-                <li> <link rel="running" href="LINK HERE" > </link> how to time your runs</li>
-                <li> <link rel="interval-training" href="LINK HERE" > </link>instructions for endurance exercises </li>
-                <li> <link rel="meditaion" href="https://shambhala.org/what-is-meditation/" > </link> Meditation resource </li>
-              </ul> 
-            </p> 
-          </div>
-        </div>
+            <div className ="text-center">
+              <h2 className="">What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
+                  We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br></h2> 
+              <h4 className="yoga-resources">Yoga & Meditation Resources</h4>
+                <ul>
+                  <li><a rel="yoga_mobility" target="_blank" href="https://www.yogajournal.com/poses">Find instructions for mobility exercises here.</a> </li>
+                  <li><a rel="meditation" target="_blank" href="https://shambhala.org/what-is-meditation/">What is meditation?</a></li>
+                  <li></li>
+                </ul>
+              <h4 className="crossfit-resources">Crossfit Resources</h4>
+                <ul>
+                  <li><a target="_blank" href="https://www.youtube.com/watch?v=edOw-bA1Avs">Explanation of Crossfit Lingo</a></li>
+                  <li><a target="_blank" href="https://www.youtube.com/watch?v=2-6EPLtSLwU">How to do a Man Maker</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=dZgVxmf6jkA">Burpees for Beginners</a></li>
+                </ul>
+              <h4 className="running-resources">Running Resources</h4>
+                <ul>
+                  <li><a target="_blank" href=""></a></li>
+                </ul>
+              <h4 className="endurance-training-resources">Endurance Training Resources</h4>
+                <ul>
+                  <li target="_blank" href="https://breakingmuscle.com/fitness/the-tabata-revolution-explained-what-why-and-how-to-tabata">What is a Tabata Interval</li>
+                </ul>
+              </div>
+            </div>
+      </div>
 
     );
   }
