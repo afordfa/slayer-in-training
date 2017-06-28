@@ -7,18 +7,12 @@ var DatePicker = require("react-bootstrap-date-picker");
 var axios = require("axios");
 
 
-// Creating the Main component
+
 var Track = React.createClass({
-
-// default to displaying all run times sorted by date
-// when distance is selected, update table to only show those run times (sorted by date still)
-// when run-time is added, keep table limited to that distance
-// add button to switch table back to all run times
-
-
   getInitialState: function() {
     var value = new Date().toISOString();
     return { times: [], distance: "1 mile", minutes: 0, seconds: 0, value: value };
+    this.getTimes = this.getTimes.bind(this);
   },
 
 
@@ -34,14 +28,17 @@ var Track = React.createClass({
       formattedValue: formattedValue // Formatted String, ex: "11/19/2016" 
     });
   },
+
+  componentDidMount: function(){
+    this.getTimes();
+  },
+
   componentDidUpdate: function(){
     // Access ISO String and formatted values from the DOM. 
     var hiddenInputElement = document.getElementById("example-datepicker");
-    // console.log(hiddenInputElement.value); // ISO String, ex: "2016-11-19T12:00:00.000Z" 
-    // console.log(hiddenInputElement.getAttribute('data-formattedvalue')) // Formatted String, ex: "11/19/2016" 
+    
   },
   handleAdd: function(){
-    console.log("test");
 
     var data = {
       date: this.state.value,
@@ -51,11 +48,16 @@ var Track = React.createClass({
       UserId: 1
     }
     var url = "/api/tracker/" + data.UserId;
-    console.log(url)
-    console.log(data);
-    return axios.post("/api/tracker/1",  data )
+    axios.post("/api/tracker/1",  data )
+    this.getTimes();
   },
 
+  getTimes: function() {
+    axios.get("/api/tracker").then((res) => {
+      this.setState({ times: res.data });
+      console.log(res.data);
+    });
+  },
 
   render: function() {
     return (
@@ -128,7 +130,7 @@ var Track = React.createClass({
 
         <div className ="text-center times-table"> 
           {/*Here we bring in the child-element to render the table of times*/}
-          <Times />
+          <Times  passTimes= {this.state.times}/>
         </div>
       </div>
     );

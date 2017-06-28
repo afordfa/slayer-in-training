@@ -8,30 +8,19 @@ var axios = require("axios");
 
 var Times = React.createClass({
   getInitialState: function() {
-    return { times: [] };
-    this.getTimes = this.getQuotes.bind(this);
+    return {  };
+    
   },
 
-  // Getting all quotes when the component mounts
-  componentDidMount: function() {
-    this.getTimes();
-  },
-
-  getTimes: function() {
-    axios.get("/api/tracker").then((res) => {
-      this.setState({ times: res.data });
-      console.log(res.data);
-    });
-  },
 
   render: function() {
     var data = [];
-    for (var i = 0; i < this.state.times.length; i++) {
-      var month = this.state.times[i].date.substr(5, 2);
-      var day = this.state.times[i].date.substr(8, 2);
-      var year = this.state.times[i].date.substr(0, 4);
+    for (var i = 0; i < this.props.passTimes.length; i++) {
+      var month = this.props.passTimes[i].date.substr(5, 2);
+      var day = this.props.passTimes[i].date.substr(8, 2);
+      var year = this.props.passTimes[i].date.substr(0, 4);
       var formattedDate = month + "/" + day + "/" + year;
-      data.push({date: formattedDate, distance: this.state.times[i].distance, time: this.state.times[i].minutes + ":" + this.state.times[i].seconds});
+      data.push({date: formattedDate, distance: this.props.passTimes[i].distance, time: this.props.passTimes[i].minutes + ":" + this.props.passTimes[i].seconds});
     }
    
     const columns = [{
@@ -52,7 +41,7 @@ var Times = React.createClass({
       data={data}
       columns={columns}
       className="-striped"
-      defaultPageSize={10}
+      defaultPageSize={20}
       filterable = "true"
     />)
   }
