@@ -1,28 +1,37 @@
 var React = require('react');
 var ReactTable = require('react-table').default
-var helpers = require("../../utils/helpers");
-
+var API = require("../../utils/API");
+var axios = require("axios");
 
 // react-table documentation
 // https://www.npmjs.com/package/react-table
-// var apiData = [
-//   {"id": 1,"distance": "1 mile","minutes": 8,"seconds": 42,"date": "2017-06-15T00:00:00.000Z","createdAt": "2017-06-21T14:44:14.000Z","updatedAt": "2017-06-21T14:44:14.000Z","UserId": 1},
-//   {"id": 2,"distance": "2 miles","minutes": 12,"seconds": 15,"date": "2017-06-16T00:00:00.000Z","createdAt": "2017-06-21T14:46:10.000Z","updatedAt": "2017-06-21T14:46:10.000Z","UserId": 1},
-//   {"id": 3,"distance": "5K","minutes": 22,"seconds": 6,"date": "2017-06-17T00:00:00.000Z","createdAt": "2017-06-21T14:46:10.000Z","updatedAt": "2017-06-21T14:46:10.000Z","UserId": 1},
-//   {"id": 4,"distance": "10K","minutes": 40,"seconds": 57,"date": "2017-06-17T00:00:00.000Z","createdAt": "2017-06-21T14:46:10.000Z","updatedAt": "2017-06-21T14:46:10.000Z","UserId": 3}
-// ];
-
-var apiData = helpers.getTimes;
 
 var Times = React.createClass({
+  getInitialState: function() {
+    return { times: [] };
+    this.getTimes = this.getQuotes.bind(this);
+  },
+
+  // Getting all quotes when the component mounts
+  componentDidMount: function() {
+    this.getTimes();
+  },
+
+  getTimes: function() {
+    axios.get("/api/tracker").then((res) => {
+      this.setState({ times: res.data });
+      console.log(res.data);
+    });
+  },
+
   render: function() {
     var data = [];
-    for (var i = 0; i < apiData.length; i++) {
-      var month = apiData[i].date.substr(5, 2);
-      var day = apiData[i].date.substr(8, 2);
-      var year = apiData[i].date.substr(0, 4);
+    for (var i = 0; i < this.state.times.length; i++) {
+      var month = this.state.times[i].date.substr(5, 2);
+      var day = this.state.times[i].date.substr(8, 2);
+      var year = this.state.times[i].date.substr(0, 4);
       var formattedDate = month + "/" + day + "/" + year;
-      data.push({date: formattedDate, distance: apiData[i].distance, time: apiData[i].minutes + ":" + apiData[i].seconds});
+      data.push({date: formattedDate, distance: this.state.times[i].distance, time: this.state.times[i].minutes + ":" + this.state.times[i].seconds});
     }
    
     const columns = [{

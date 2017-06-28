@@ -2,13 +2,9 @@
 var React = require("react");
 
 // Here we include all of the sub-components
-
-
-// Helper for making AJAX requests to our API
-var helpers = require("../utils/helpers");
-var Times = require("./track/Times.js")
+var Times = require("./track/Times.js");
 var DatePicker = require("react-bootstrap-date-picker");
-
+var axios = require("axios");
 
 
 // Creating the Main component
@@ -24,11 +20,7 @@ var Track = React.createClass({
     var value = new Date().toISOString();
     return { times: [], distance: "1 mile", minutes: 0, seconds: 0, value: value };
   },
-  getTimes: function(type) {
-    helpers.getTimes(type).then((res) => {
-      this.setState({ times: res.data });
-    });
-  },
+
 
   handleChange: function(event) {
     var newState = {};
@@ -45,12 +37,23 @@ var Track = React.createClass({
   componentDidUpdate: function(){
     // Access ISO String and formatted values from the DOM. 
     var hiddenInputElement = document.getElementById("example-datepicker");
-    console.log(hiddenInputElement.value); // ISO String, ex: "2016-11-19T12:00:00.000Z" 
-    console.log(hiddenInputElement.getAttribute('data-formattedvalue')) // Formatted String, ex: "11/19/2016" 
+    // console.log(hiddenInputElement.value); // ISO String, ex: "2016-11-19T12:00:00.000Z" 
+    // console.log(hiddenInputElement.getAttribute('data-formattedvalue')) // Formatted String, ex: "11/19/2016" 
   },
   handleAdd: function(){
     console.log("test");
-    //this needs to add data to the database
+
+    var data = {
+      date: this.state.value,
+      distance: this.state.distance,
+      minutes: parseInt(this.state.minutes),
+      seconds: parseInt(this.state.seconds),
+      UserId: 1
+    }
+    var url = "/api/tracker/" + data.UserId;
+    console.log(url)
+    console.log(data);
+    return axios.post("/api/tracker/1",  data )
   },
 
 

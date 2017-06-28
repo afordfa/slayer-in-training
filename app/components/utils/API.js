@@ -1,17 +1,11 @@
-var db = require("../../../models");
-const Helper = {
-  // Retrieves all times from the db
-  // getTimes: function() {
-  //   app.get("/api/tracker", function(req, res) {
-      
-  //     db.Tracker.findAll({}).then(function(dbTracker) {
-  //       console.log(dbTracker);
-  //       res.json(dbTracker);
-  //       return dbTracker;
-  //     });
-  //   });  
-  // },
-  // Saves a new quote to the db
+import axios from "axios";
+
+const API = {
+  // Retrieves all quotes from the db
+  getQuotes: function() {
+    return axios.get("/api/tracker");
+  }
+  // // Saves a new quote to the db
   // saveQuote: function(text) {
   //   return axios.post("/api/quotes", { text });
   // },
@@ -27,6 +21,4 @@ const Helper = {
   // }
 };
 
-export default Helper;
-
-
+export default API;

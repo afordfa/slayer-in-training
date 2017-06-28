@@ -6,7 +6,7 @@ import {Link} from "react-router";
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("../utils/helpers");
+var API = require("../utils/API");
 
 // Creating the Guest component
 var Guest = React.createClass({

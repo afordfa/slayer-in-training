@@ -5,7 +5,7 @@ var React = require("react");
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("../utils/helpers");
+var API = require("../utils/API");
 
 // Creating the Guest component
 var Login = React.createClass({
