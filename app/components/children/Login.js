@@ -1,11 +1,12 @@
 // Include React
 var React = require("react");
+import {Link} from "react-router";
 
 // Here we include all of the sub-components
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("../utils/helpers");
+var API = require("../utils/API");
 
 // Creating the Guest component
 var Login = React.createClass({
@@ -26,9 +27,36 @@ var Login = React.createClass({
     return (
 
       <div>
-          <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Guest Slayer!</h3> 
+        <p className="text-center">
+        Not your average workout app! <br></br>
+        Once you login, choose how much time you have to train, and what you'd like to focus on today, 
+        and let Slayer in Training generate a workout and/or meditation just for you! <br></br>
+        Not sure what you want to focus on? Choose The Full Buffy for a complete mind-body workout including 
+        Mobility, Endurance, Strength, and Meditation.</p>        
+          <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
             <p>Ready to train?</p> 
-            <p>Login logic</p> 
+              <form>
+                 <label>
+                 Name &nbsp;
+                   <input type="text" name="name" />
+                 </label> <br></br>
+                 <label>
+                 Email &nbsp;
+                   <input type="text" name="email" />
+                 </label>
+              </form>
+
+              <p className ="text-center">
+                <Link to={"welcome"}> 
+                  <button className = "btn-danger"> Login </button>
+                </Link>  
+              </p>
+              <p className ="text-center">
+                Not sure if you're the chosen one? Try out your potential with this Sample of our Full Buffy Workout! &nbsp; 
+                <Link to={"guest"}> 
+                  <button className = "btn-danger"> Sample Workout </button>
+                </Link>  
+              </p>              
           </div> 
 
         </div>

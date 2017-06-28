@@ -1,11 +1,12 @@
 // Include React
 var React = require("react");
+import {Link} from "react-router";
 
 // Here we include all of the sub-components
 
 
 // Helper for making AJAX requests to our API
-var helpers = require("../utils/helpers");
+var API = require("../utils/API");
 
 // Creating the Guest component
 var Resources = React.createClass({

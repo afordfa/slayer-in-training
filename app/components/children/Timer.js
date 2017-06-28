@@ -1,7 +1,7 @@
 
 var React = require("react");
 var Clock = require("./timer/Clock.js")
-var helpers = require("../utils/helpers");
+var API = require("../utils/API");
 
 
 var Timer = React.createClass({

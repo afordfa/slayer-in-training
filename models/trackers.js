@@ -3,26 +3,26 @@ module.exports = function(sequelize, DataTypes) {
     // Giving the Author model a name of type STRING
     distance: {
       type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "1 mile",
-      validate: {
-        len: [1, 100]
-      }
+      // allowNull: false,
+      // defaultValue: "1 mile",
+      // validate: {
+      //   len: [1, 100]
+      // }
     },
     minutes: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      // allowNull: false
     },
     seconds: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        len: [1, 250]
-      }
+      // allowNull: true,
+      // validate: {
+      //   len: [1, 250]
+      // }
     },
     date: {
       type: DataTypes.DATE,
-      allowNull: false
+      // allowNull: false
     }
   },
     {

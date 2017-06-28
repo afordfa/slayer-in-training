@@ -1,75 +1,61 @@
-const React = require('react');
-const {Table, Column, Cell} = require('fixed-data-table');
+var React = require('react');
+var ReactTable = require('react-table').default
+var API = require("../../utils/API");
+var axios = require("axios");
 
-class MyTextCell extends React.Component {
-  render() {
-    const {rowIndex, field, data, ...props} = this.props;
-    return (
-      <Cell {...props}>
-        {data[rowIndex][field]}
-      </Cell>
-    );
+// react-table documentation
+// https://www.npmjs.com/package/react-table
+
+var Times = React.createClass({
+  getInitialState: function() {
+    return { times: [] };
+    this.getTimes = this.getQuotes.bind(this);
+  },
+
+  // Getting all quotes when the component mounts
+  componentDidMount: function() {
+    this.getTimes();
+  },
+
+  getTimes: function() {
+    axios.get("/api/tracker").then((res) => {
+      this.setState({ times: res.data });
+      console.log(res.data);
+    });
+  },
+
+  render: function() {
+    var data = [];
+    for (var i = 0; i < this.state.times.length; i++) {
+      var month = this.state.times[i].date.substr(5, 2);
+      var day = this.state.times[i].date.substr(8, 2);
+      var year = this.state.times[i].date.substr(0, 4);
+      var formattedDate = month + "/" + day + "/" + year;
+      data.push({date: formattedDate, distance: this.state.times[i].distance, time: this.state.times[i].minutes + ":" + this.state.times[i].seconds});
+    }
+   
+    const columns = [{
+      Header: 'Date',
+      accessor: 'date', 
+      filterable: false
+    }, {
+      Header: 'Distance',
+      accessor: 'distance',
+    }, {
+      Header: 'Time',
+      accessor: 'time',
+      filterable: false
+    }
+    ] 
+   return (
+    <ReactTable
+      data={data}
+      columns={columns}
+      className="-striped"
+      defaultPageSize={10}
+      filterable = "true"
+    />)
   }
-}
-
-class MyLinkCell extends React.Component {
-  render() {
-    const {rowIndex, field, data, ...props} = this.props;
-    const link = data[rowIndex][field];
-    return (
-      <Cell {...props}>
-        <a href={link}>{link}</a>
-      </Cell>
-    );
-  }
-}
-
-class Track extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      myTableData: [
-        {name: 'Rylan', email: 'Angelita_Weimann42@gmail.com'},
-        {name: 'Amelia', email: 'Dexter.Trantow57@hotmail.com'},
-        {name: 'Estevan', email: 'Aimee7@hotmail.com'},
-        {name: 'Florence', email: 'Jarrod.Bernier13@yahoo.com'},
-        {name: 'Tressa', email: 'Yadira1@hotmail.com'},
-      ],
-    };
-  }
-
-  render() {
-    return (
-      <Table
-        rowsCount={this.state.myTableData.length}
-        rowHeight={50}
-        headerHeight={50}
-        width={1000}
-        height={500}
-        >
-        <Column
-          header={<Cell>Name</Cell>}
-          cell={
-            <MyTextCell
-              data={this.state.myTableData}
-              field="name"
-            />
-          }
-          width={200}
-        />
-        <Column
-          header={<Cell>Email</Cell>}
-          cell={
-            <MyLinkCell
-              data={this.state.myTableData}
-              field="email"
-            />
-          }
-          width={200}
-        />
-      </Table>
-    );
-  }
-}
-module.exports = Track;
+})
+// Export the component back for use in other files
+module.exports = Times;
