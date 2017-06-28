@@ -1,5 +1,6 @@
 // Include React
 var React = require("react");
+import {Link} from "react-router";
 
 // Here we include all of the sub-components
 
@@ -35,6 +36,13 @@ var Workout = React.createClass({
         <div className="text-center"> 
           and here all the workout data will magically appear. buffy help us all 
         </div>
+          <p className ="text-center"> 
+           What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
+           We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
+             <Link to={"resources"}>
+               <button className = "btn-danger"> Workout Resources</button>
+             </Link>
+          </p>          
       </div>
 
     );

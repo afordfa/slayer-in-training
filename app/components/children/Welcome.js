@@ -1,5 +1,6 @@
 // Include React
 var React = require("react");
+import {Link} from "react-router";
 
 // Here we include all of the sub-components
 
@@ -22,6 +23,8 @@ var Welcome = React.createClass({
 
   // Here we render the function
 
+ /* function for workout generation. oh boy. */
+
   render: function() {
     return (
 
@@ -29,10 +32,38 @@ var Welcome = React.createClass({
         <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
           Ready to train? 
         </div> 
-        <div idName=  "howLong"> <p className ="text-center"> How long can you train today? [time drop down here]</p></div>
-        <div idName= "workoutType"> <p className ="text-center"> What's your focus, Slayer? [drop down here]</p></div>
-        <p className ="text-center"><button className = "btn-danger"> Ready. Set. Slay!</button> </p>
-        <p className ="text-center"><button className = "btn-danger"> Track Progress</button> </p>
+        <div idName=  "howLong"> <p className ="text-center"> How long can you train today? &nbsp;
+                <select>
+                <option >15 Minutes</option>
+                <option >20 Minutes</option>
+                <option >30 Minutes</option>
+                <option >45 Minutes</option>
+                <option >60 Minutes</option>
+              </select></p></div>
+        <div idName= "workoutType"> <p className ="text-center"> What's your focus, Slayer? &nbsp;
+                <select>
+                <option >Mobility</option>
+                <option >Strength</option>
+                <option >Endurance</option>
+                <option >Meditation</option>
+                <option >The Full Buffy</option>
+                </select></p></div>
+        <p className ="text-center">
+          <Link to={"workout"}>
+          
+            <button className = "btn-danger"> Ready. Set. Slay!</button> 
+          </Link>
+        </p>
+        <p className ="text-center">
+          <Link to={"track"}> 
+            <button className = "btn-danger"> Track Progress</button>
+          </Link>  
+        </p>
+        <p className ="text-center">
+          <Link to={"timer"}> 
+            <button className = "btn-danger"> Timer</button>
+          </Link>  
+        </p>        
         <div idName= "track"> <p className ="text-center"> Better, faster, stronger. Outrun the demons. </p></div> 
       </div>
 
