@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: black;
+    color: red;
+    border-style: solid;
+    border-width: 0px; 
+    border-radius: 50px
+};
+
+ul, li {
+    list-style-type: none;
+
+};

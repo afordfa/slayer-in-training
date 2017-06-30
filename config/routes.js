@@ -37,6 +37,7 @@ module.exports = (
   <Router history={browserHistory}>
 
     <Route path="/" component={Main}>
+		<IndexRoute component ={Login} />
 	    <Route path="welcome" component={Welcome} />
 	    <Route path="guest" component={Guest} />
 	    <Route path="modal" component={Modal} />
