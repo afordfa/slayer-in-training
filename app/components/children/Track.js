@@ -81,8 +81,8 @@ var Track = React.createClass({
                 id="distance"
                 onChange={this.handleChange}
                 >
-                  <option value="1">1 mile</option>
-                  <option value="2">2 miles</option>
+                  <option value="1 mile">1 mile</option>
+                  <option value="2 miles">2 miles</option>
                   <option value="5K">5K</option>
                 </select>
               </div>   

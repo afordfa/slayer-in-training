@@ -7,6 +7,7 @@ import {Link} from "react-router";
 
 // Helper for making AJAX requests to our API
 var API = require("../utils/API");
+var Details = require("./workout/Details")
 
 // Creating the Main component
 var Workout = React.createClass({
@@ -27,14 +28,39 @@ var Workout = React.createClass({
     return (
 
       <div>
+        <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
+          Ready to train? 
+        </div> 
+        <div idName=  "howLong"> <p className ="text-center"> How long can you train today? &nbsp;
+                <select>
+                <option >15 Minutes Mobility</option>
+                <option >30 Minutes Mobility</option>
+                <option >15 Minutes Strength</option>
+                <option >30 Minutes Strength</option>
+                <option >30 Minutes Endurance</option>
+                <option >45 Minutes Endurance</option>
+                <option >60 Minutes Full Buffy</option>
+              </select></p></div>
+        <p className ="text-center">
+            <button className = "btn-danger"> Ready. Set. Slay!</button> 
+        </p>
+        <p className ="text-center">
+          <Link to={"track"}> 
+            <button className = "btn-danger"> Track Progress</button>
+          </Link>  
+        </p>
+        <p className ="text-center">
+          <Link to={"timer"}> 
+            <button className = "btn-danger"> Timer</button>
+          </Link>  
+        </p>        
+        <div idName= "track"> <p className ="text-center"> Better, faster, stronger. Outrun the demons. </p></div> 
+
         <div className="text-center" idName="subHeader"> 
-          <h3 idName="welcome">
-            Welcome Slayer!
-          </h3> 
           Ready. Set. SLAY!  
         </div> 
         <div className="text-center"> 
-          and here all the workout data will magically appear. buffy help us all 
+          <Details />
         </div>
           <p className ="text-center"> 
            What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>

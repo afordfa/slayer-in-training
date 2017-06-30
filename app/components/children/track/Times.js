@@ -20,7 +20,11 @@ var Times = React.createClass({
       var day = this.props.passTimes[i].date.substr(8, 2);
       var year = this.props.passTimes[i].date.substr(0, 4);
       var formattedDate = month + "/" + day + "/" + year;
-      data.push({date: formattedDate, distance: this.props.passTimes[i].distance, time: this.props.passTimes[i].minutes + ":" + this.props.passTimes[i].seconds});
+      var minutes = ('0' + this.props.passTimes[i].minutes).slice(-2);
+      var seconds = ('0' + this.props.passTimes[i].seconds).slice(-2);
+      var formattedTime = minutes + ":" + seconds;
+      
+      data.push({date: formattedDate, distance: this.props.passTimes[i].distance, time: formattedTime});
     }
    
     const columns = [{
@@ -41,7 +45,7 @@ var Times = React.createClass({
       data={data}
       columns={columns}
       className="-striped"
-      defaultPageSize={20}
+      defaultPageSize={10}
       filterable = "true"
     />)
   }
