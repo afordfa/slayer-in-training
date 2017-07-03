@@ -25,7 +25,6 @@ var Guest = require("../app/components/children/Guest");
 var Modal = require("../app/components/children/Modal");
 var Resources = require("../app/components/children/Resources");
 var Track = require("../app/components/children/Track");
-var Welcome = require("../app/components/children/Welcome");
 var Workout = require("../app/components/children/Workout");
 var Timer = require("../app/components/children/Timer");
 var Login = require("../app/components/children/Login");
@@ -38,7 +37,6 @@ module.exports = (
 
     <Route path="/" component={Main}>
 		<IndexRoute component ={Login} />
-	    <Route path="welcome" component={Welcome} />
 	    <Route path="guest" component={Guest} />
 	    <Route path="modal" component={Modal} />
 	    <Route path="resources" component={Resources} />

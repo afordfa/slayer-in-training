@@ -1,3 +1,4 @@
+
 // Include React
 var React = require("react");
 import {Link} from "react-router";
@@ -32,28 +33,18 @@ var Resources = React.createClass({
       <div className="resource-container">   
           <div idName= "links"> 
             <div className ="text-center">
-              <h2 className="">What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
-                  We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br></h2> 
-              <h4 className="yoga-resources">Yoga & Meditation Resources</h4>
-                <ul>
-                  <li><a rel="yoga_mobility" target="_blank" href="https://www.yogajournal.com/poses">Find instructions for mobility exercises here.</a> </li>
-                  <li><a rel="meditation" target="_blank" href="https://shambhala.org/what-is-meditation/">What is meditation?</a></li>
-                  <li></li>
-                </ul>
-              <h4 className="crossfit-resources">Crossfit Resources</h4>
-                <ul>
-                  <li><a target="_blank" href="https://www.youtube.com/watch?v=edOw-bA1Avs">Explanation of Crossfit Lingo</a></li>
-                  <li><a target="_blank" href="https://www.youtube.com/watch?v=2-6EPLtSLwU">How to do a Man Maker</a></li>
-                  <li><a href="https://www.youtube.com/watch?v=dZgVxmf6jkA">Burpees for Beginners</a></li>
-                </ul>
-              <h4 className="running-resources">Running Resources</h4>
-                <ul>
-                  <li><a target="_blank" href=""></a></li>
-                </ul>
-              <h4 className="endurance-training-resources">Endurance Training Resources</h4>
-                <ul>
-                  <li target="_blank" href="https://breakingmuscle.com/fitness/the-tabata-revolution-explained-what-why-and-how-to-tabata">What is a Tabata Interval</li>
-                </ul>
+              <h4 className="resource-header">What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
+                  We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br></h4> 
+              <a rel="yoga_mobility" target="_blank" href="https://www.yogajournal.com/poses">Yoga Journal Pose Library</a> <br></br>
+              <a rel="meditation" target="_blank" href="https://shambhala.org/what-is-meditation/">Meditation</a><br></br>
+              <a target="_blank" href="https://www.youtube.com/watch?v=edOw-bA1Avs">Crossfit Lingo</a><br></br>
+              <a target="_blank" href="https://www.youtube.com/watch?v=2-6EPLtSLwU">How to do a Man Maker</a><br></br>
+              <a href="https://www.youtube.com/watch?v=dZgVxmf6jkA">Burpees for Beginners</a><br></br>
+              <a target="_blank" href="https://breakingmuscle.com/fitness/the-tabata-revolution-explained-what-why-and-how-to-tabata">What is a Tabata Interval?</a><br></br>
+                         
+              <p className ="text-center">
+              <Link to={"workout"}><button className = "btn-danger"> Ready. Set. Slay! </button></Link>  
+        </p>
               </div>
             </div>
       </div>
