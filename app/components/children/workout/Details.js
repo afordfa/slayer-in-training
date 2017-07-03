@@ -14,7 +14,7 @@ var Details = React.createClass({
     const list = this.props.workout;
 
     return list.map(item => (
-        <tr>
+        <tr className= "text-center">
           <td>{item.title}</td>
           <td>{item.minutes} minutes</td>
         </tr>
@@ -29,8 +29,8 @@ var Details = React.createClass({
         <table>
           <thead>
             <tr>
-              <th>Exercise</th>
-              <th>Time</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
