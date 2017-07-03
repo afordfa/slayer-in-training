@@ -1,66 +1,103 @@
-// Include React
-var React = require("react");
+/* global FB*/
+import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import {Link} from "react-router";
+import {browserHistory} from 'react-router';
 
-// Here we include all of the sub-components
-
-
-// Helper for making AJAX requests to our API
-var API = require("../utils/API");
-
-// Creating the Guest component
 var Login = React.createClass({
 
-// full app psuedocode
-  // 1) on page load: a modal pops up (or separate page) with options to login or "guest slay" (first wire frame)
-  // 2) click guest slay redirect to pre-written workout (3rd wire frame)
-  // 3) click login redirect to google authentication
-  // 4) google login is approved (or error message thrown)
-  // 5) login approved: redirect to welcome slayer (second wire frame)
-  // 6) if user chooses time, style and clicks "ready to slay"- workout is generated from database and displayed (3rd wire frame)
-  // 7) if user chooses track redirect to tracker page (4th wire frame)
-  // 8) add a button on each page (besides login) the reditects to a workout resources list (for now straight up weblinks, will complie ASAP)
 
-  // Here we render the function
+  componentDidMount: function() {
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '960505730755691',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.8'
+      });
+      FB.AppEvents.logPageView();
+      FB.Event.subscribe('auth.statusChange', function(response) {
+        if (response.authResponse) {
+          this.checkLoginState();
+        } else {
+          console.log('---->User cancelled login or did not fully authorize.');
+        }
+      }.bind(this));
+    }.bind(this);
+
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = '//connect.facebook.net/en_US/sdk.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  },
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  testAPI: function() {
+    console.log('Welcome! Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log(response);
+      console.log('Successful login for: ' + response.name);
+      browserHistory.push('/workout');
+    });
+  },
+
+  // This is called with the results from from FB.getLoginStatus().
+  statusChangeCallback: function(response) {
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      this.testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+      'into Facebook.';
+    }
+  },
+
+  checkLoginState: function() {
+    FB.getLoginStatus(function(response) {
+      this.statusChangeCallback(response);
+    }.bind(this));
+  },
+
+  handleClick: function() {
+    FB.login(this.checkLoginState());
+  },
 
   render: function() {
-    return (
+  return (
 
-      <div>
-        <p className="text-center">
-        Not your average workout app! <br></br>
-        Once you login, choose how much time you have to train, and what you'd like to focus on today, 
-        and let Slayer in Training generate a workout and/or meditation just for you! <br></br>
-        Not sure what you want to focus on? Choose The Full Buffy for a complete mind-body workout including 
-        Mobility, Endurance, Strength, and Meditation.</p>        
-          <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
-            <p>Ready to train?</p> 
-              <form>
-                 <label>
-                 Name &nbsp;
-                   <input type="text" name="name" />
-                 </label> <br></br>
-                 <label>
-                 Email &nbsp;
-                   <input type="text" name="email" />
-                 </label>
-              </form>
-
-              <p className ="text-center">
-                <Link to={"welcome"}> 
-                  <button className = "btn-danger"> Login </button>
-                </Link>  
-              </p>
-              <p className ="text-center">
-                Not sure if you're the chosen one? Try out your potential with this Sample of our Full Buffy Workout! &nbsp; 
+    <div>
+      <p className="text-center">
+      Not your average workout app! <br></br>
+      Once you login, choose how much time you have to train, and what you'd like to focus on today, 
+      and let Slayer in Training generate a workout and/or meditation just for you! <br></br>
+      Not sure what you want to focus on? Choose The Full Buffy for a complete mind-body workout including 
+      Mobility, Endurance, Strength, and Meditation.</p>        
+        <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
+          <p>Ready to train?</p> 
+            <p className ="text-center">
+              
+                <button className = "btn-danger" onClick={this.handleClick} onlogin={this.checkLoginState}> Login With Facebook</button>
+                <div id="status"></div>
+            </p>
+            <p className ="text-center">
+              Not sure if you're the chosen one? Try out your potential with this Sample of our Full Buffy Workout! &nbsp; 
                 <Link to={"guest"}> 
                   <button className = "btn-danger"> Sample Workout </button>
-                </Link>  
-              </p>              
-          </div> 
-
-        </div>
-
+                </Link>         
+            </p>              
+        </div> 
+      </div>
     );
   }
 });
