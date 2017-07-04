@@ -1,4 +1,79 @@
+use slayer_db;
 
+
+INSERT INTO Users (name, fbId, createdAt, updatedAt)
+VALUES 
+("Buffy Summers", "1412524523452345", NOW(), NOW()),
+("Rupert Giles", "7597890245039390", NOW(), NOW()),
+("Willow Rosenberg", "8574967463856763", NOW(), NOW()),
+("Xander Harris", "7563856341950774", NOW(), NOW());
+
+
+
+INSERT INTO trackers 
+
+
+SET distance = "1 mile",
+minutes = 8,
+seconds = 42,
+date = "2017-06-15",
+createdAt = NOW(),
+updatedAt = NOW(),
+UserId =  (SELECT id FROM users
+  WHERE id = 1);
+  
+
+
+INSERT INTO trackers 
+
+
+SET distance = "2 miles",
+minutes = 12,
+seconds = 15,
+date = "2017-06-16",
+createdAt = NOW(),
+updatedAt = NOW(),
+UserId =  (SELECT id FROM users
+  WHERE id = 1);
+  
+
+
+
+INSERT INTO trackers 
+
+
+SET distance = "5K",
+minutes = 22,
+seconds = 06,
+date = "2017-06-17",
+createdAt = NOW(),
+updatedAt = NOW(),
+UserId =  (SELECT id FROM users
+  WHERE id = 1);
+
+
+
+
+
+INSERT INTO trackers 
+
+
+SET distance = "10K",
+minutes = 40,
+seconds = 57,
+date = "2017-06-17",
+createdAt = NOW(),
+updatedAt = NOW(),
+UserId =  (SELECT id FROM users
+  WHERE id = 3);
+
+  
+  
+  select * from Trackers;
+
+
+
+  
 
 INSERT INTO Exercises (title, minutes, tags, focus, createdAt, updatedAt)
 VALUES 

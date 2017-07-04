@@ -8,7 +8,7 @@ var Timer = require("./workout/Timer.js");
 
 
 // Helper for making AJAX requests to our API
-var API = require("../utils/API");
+
 var Details = require("./workout/Details")
 
 // Creating the Main component
@@ -28,7 +28,6 @@ var Workout = React.createClass({
   getInitialState: function() {
     return { selection: "15m", time: 15, type: "Mobility", exercises: [], workout: []};
   },
-
   handleChange(event) {
     var newState = {};
     newState[event.target.id] = event.target.value;
@@ -58,13 +57,22 @@ var Workout = React.createClass({
         newState["type"] = "Endurance"
         break        
       case "60b":
-        newState["time"] = 60;
+        newState["time"] = 55;
         newState["type"] = "Buffy"
         break        
     }
     this.setState(newState);
   },
-
+  handleStart: function() {
+    this.getWorkout();
+  },
+  getWorkout: function() {
+    var url = "/api/exercises/tag/" + this.state.type;
+    axios.get(url).then((res) => {
+      this.setState({ exercises: res.data });
+      this.buildWorkout(res.data);
+    });
+  },
   buildWorkout: function(exercises) {
       var temporaryWorkout = exercises;
       var currentIndex = temporaryWorkout.length, temporaryValue, randomIndex;
@@ -81,26 +89,21 @@ var Workout = React.createClass({
         temporaryWorkout[currentIndex] = temporaryWorkout[randomIndex];
         temporaryWorkout[randomIndex] = temporaryValue;
       }
-
       var workoutBuild = [];
       var countTime = 0;
-      for (var i = 0; i < temporaryWorkout.length; i++) {
-        if (countTime + temporaryWorkout[i].minutes <= this.state.time) {
-          workoutBuild.push(temporaryWorkout[i]);
-          countTime += temporaryWorkout[i].minutes;
+      var startIndex = Math.floor(Math.random() * (temporaryWorkout.length-4));
+      while (countTime < this.state.time) {
+        for (var i = startIndex; countTime < this.state.time; i++) {
+          if (countTime + temporaryWorkout[i].minutes <= this.state.time) {
+            workoutBuild.push(temporaryWorkout[i]);
+            countTime += temporaryWorkout[i].minutes;
+          }   
+          if (i == (temporaryWorkout.length - 1)) {
+            i = 0;
+          }       
         }
       }
       this.setState({workout: workoutBuild}) 
-  },
-  getWorkout: function() {
-    var url = "/api/exercises/tag/" + this.state.type;
-    axios.get(url).then((res) => {
-      this.setState({ exercises: res.data });
-      this.buildWorkout(res.data);
-    });
-  },
-  handleStart: function() {
-    this.getWorkout();
   },
   render: function() {
     return (
