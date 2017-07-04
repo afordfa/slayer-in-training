@@ -69,7 +69,7 @@ var Track = React.createClass({
                 <strong>Date</strong>
               </h4>
               <div>
-                  <DatePicker id="example-datepicker" value={this.state.value} onChange={this.handleDateChange} />
+                  <DatePicker id="example-datepicker" style={{width: 400 }} value={this.state.value} onChange={this.handleDateChange} />
               </div>
               <h4 className="">
                 <strong>Distance</strong>
@@ -90,10 +90,10 @@ var Track = React.createClass({
           </form>       
         </div>
 
-        <div className ="text-center" idName=  "minutes"> 
+        <div idName=  "minutes"> 
           <form>
           {/*I HAVE NO IDEA HOW TO GET THESE TO APPEAR SIDE-BY-SIDE!!! */}
-            <h4 className="">
+            <div> <h4 className="" >
               <strong>Minutes</strong>
             </h4>
             <input
@@ -104,6 +104,7 @@ var Track = React.createClass({
               id="minutes"
               onChange={this.handleChange}
               required
+              style={{width: 400 }}
             />
             <h4 className="">
               <strong>Seconds</strong>
@@ -117,12 +118,14 @@ var Track = React.createClass({
               id="seconds"
               onChange={this.handleChange}
               required
+              style={{width: 400 }}
             />
+            </div>
           </form>
         </div>
         <div>
           <p className ="text-center">
-            <button className = "btn-danger" onClick={this.handleAdd}> 
+            <button className = "btn-danger" onClick={this.handleAdd} style={{margin: 10, borderRadius: 50 }}> 
               add new run 
             </button> 
           </p>

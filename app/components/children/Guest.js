@@ -55,14 +55,14 @@ var Guest = React.createClass({
           <p className ="text-center"> 
            Like what you slayed? Join the Slayer Army!  <br></br>
              <Link to={"login"}>
-               <button className = "btn-danger"> Signup to Slay!</button>
+               <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Signup to Slay!</button>
              </Link>
           </p>
-          <p className ="text-center"> 
+          <p className ="text-center" style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}}> 
            What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
            We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
              <Link to={"resources"}>
-               <button className = "btn-danger"> Workout Resources</button>
+               <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Workout Resources</button>
              </Link>
           </p>            
       </div>

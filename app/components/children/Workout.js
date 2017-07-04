@@ -135,12 +135,12 @@ var Workout = React.createClass({
         </p>
         <p className ="text-center">
           <Link to={"track"}> 
-            <button className = "btn-danger"> Track Progress</button>
+            <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Track Progress</button>
           </Link>  
         </p>
         <p className ="text-center">
           <Link to={"timer"}> 
-            <button className = "btn-danger"> Timer</button>
+            <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Timer</button>
           </Link>  
         </p>        
         <div idName= "track"> <p className ="text-center"> Better, faster, stronger. Outrun the demons. </p></div> 
@@ -153,7 +153,7 @@ var Workout = React.createClass({
            What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
            We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
              <Link to={"resources"}>
-               <button className = "btn-danger"> Workout Resources</button>
+               <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Workout Resources</button>
              </Link>
           </p>          
       </div>

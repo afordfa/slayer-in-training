@@ -93,12 +93,12 @@ var Login = React.createClass({
                 <button className = "btn-danger" onClick={this.handleClick} onlogin={this.checkLoginState}> Login With Facebook</button>
                 <div id="status"></div>
             </p>
-            <p className ="text-center">
-              Not sure if you're the chosen one? Try out your potential with this Sample of our Full Buffy Workout! &nbsp; 
+            <div className ="text-center" style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}} > 
+              Not sure if you're the chosen one? Find your potential with a sample of our Full Buffy Workout! &nbsp; <br></br>
                 <Link to={"guest"}> 
-                  <button className = "btn-danger"> Sample Workout </button>
+                  <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Sample Workout </button>
                 </Link>         
-            </p>              
+            </div>              
         </div> 
       </div>
     );
@@ -107,3 +107,4 @@ var Login = React.createClass({
 
 // Export the component back for use in other files
 module.exports = Login;
+
