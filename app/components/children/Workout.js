@@ -114,12 +114,12 @@ var Workout = React.createClass({
                  <Details workout= {this.state.workout} />
         
            </div>        
-        <div idName = "howLong"><p className ="text-center"> How do you want to train today?
+        <div idName = "howLong"><p className ="text-center"> How do you want to train today? &nbsp;
           <select 
             name="workouts"
             value={this.state.selection}
             id="selection"
-            onChange={this.handleChange}
+            onChange={this.handleChange} 
 
           >
                 <option value="15m" time="15" type="Mobility">15 Minutes Mobility</option>
@@ -129,27 +129,24 @@ var Workout = React.createClass({
                 <option value="30e" time="30" type="Endurance">30 Minutes Endurance</option>
                 <option value="45e" time="45" type="Endurance">45 Minutes Endurance</option>
                 <option value="60b" time="60" type="Buffy">60 Minutes Full Buffy</option>
-              </select></p></div>
+              </select>
+            <button className = "btn-danger" onClick={this.handleStart} style={{margin: 10, borderRadius: 50 }}> Ready. Set. Slay!</button> 
+                        
+              </p></div>
         <p className ="text-center">
-            <button className = "btn-danger" onClick={this.handleStart}> Ready. Set. Slay!</button> 
-        </p>
-        <p className ="text-center">
+
           <Link to={"track"}> 
             <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Track Progress</button>
           </Link>  
-        </p>
-        <p className ="text-center">
+          
           <Link to={"timer"}> 
             <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Timer</button>
           </Link>  
         </p>        
-        <div idName= "track"> <p className ="text-center"> Better, faster, stronger. Outrun the demons. </p></div> 
+        <div idName= "track"> <p className ="text-center" style = {{fontSize: 25, fontFamily: "fantasy"}} > Better. Faster. Stronger. Outrun the demons. </p></div> 
 
-        <div className="text-center" idName="subHeader"> 
-          Ready. Set. SLAY!  
-        </div> 
 
-          <p className ="text-center"> 
+          <p className ="text-center"style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}}> 
            What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
            We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
              <Link to={"resources"}>

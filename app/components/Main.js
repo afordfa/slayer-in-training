@@ -25,14 +25,17 @@ render: function() {
       return React.cloneElement(child, { username: that.state.username, setUser: that.setUser });
     });
     return(
-      <div className= "mainContainer">
-        <div className="jumbotron" style={{backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 75}}>
-           <h1 className="text-center">Slayer in Training</h1>
+      <div className= "mainContainer" style= {{backgroundColor: "#f1e9d2"}} >
+        <div className="jumbotron" style={{backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 75, textAlign: "Center"}}>
+           <h1 style={{fontFamily: "New Rocker", fontStyle: "Cursive", fontSize: 78 }}> Slayer in Training </h1>
             <p className="text-center">Are you ready to reach your full potential?</p>             
         </div>
         <div>
           {children} 
         </div>
+            <div className="footer" style={{backgroundColor: "#4d4d4d", color: "#f1e9d2", borderStyle: "solid", borderWidth: 0,  textAlign: "Center"}}>     
+            &copy; The Scoobies: Anita Ford, Leigh Fisher 
+            </div>
       </div>
     )
   }

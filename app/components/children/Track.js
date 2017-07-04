@@ -5,6 +5,7 @@ var React = require("react");
 var Times = require("./track/Times.js");
 var DatePicker = require("react-bootstrap-date-picker");
 var axios = require("axios");
+import {Link} from "react-router";
 
 
 
@@ -62,19 +63,18 @@ var Track = React.createClass({
   render: function() {
     return (
       <div>
-        <div idName=  "distance"> 
-          <form>
-            <div className="form-group">
+      <div className = "text-center" > 
+        <div idName=  "distance" style ={{textAlign: "center" }}> 
+          <form style={{ textAlign: "center" }} >
+
+            <div className="form-group" style ={{textAlign: "center" }}>
               <h4 className="">
-                <strong>Date</strong>
+                Date &nbsp;
+                  <DatePicker id="example-datepicker" style={{width: 300, float: "none" }} value={this.state.value} onChange={this.handleDateChange} />
               </h4>
-              <div>
-                  <DatePicker id="example-datepicker" style={{width: 400 }} value={this.state.value} onChange={this.handleDateChange} />
-              </div>
-              <h4 className="">
-                <strong>Distance</strong>
-              </h4>
-              <div>
+              <div><h4 className="">
+                <strong>Distance</strong> &nbsp;
+              
                 <select 
                 name="distance"
                 value={this.state.distance}
@@ -84,19 +84,17 @@ var Track = React.createClass({
                   <option value="1 mile">1 mile</option>
                   <option value="2 miles">2 miles</option>
                   <option value="5K">5K</option>
-                </select>
+                </select> </h4>
               </div>   
             </div>
           </form>       
         </div>
 
-        <div idName=  "minutes"> 
+         
           <form>
           {/*I HAVE NO IDEA HOW TO GET THESE TO APPEAR SIDE-BY-SIDE!!! */}
             <div> <h4 className="" >
-              <strong>Minutes</strong>
-            </h4>
-            <input
+              <strong>Minutes</strong><input
               type="number"
               min="1"
               value={this.state.minutes}
@@ -104,8 +102,9 @@ var Track = React.createClass({
               id="minutes"
               onChange={this.handleChange}
               required
-              style={{width: 400 }}
-            />
+              style={{width: 300, textAlign: "center", float: "none"}}
+            /> </h4> 
+
             <h4 className="">
               <strong>Seconds</strong>
             </h4>
@@ -118,11 +117,12 @@ var Track = React.createClass({
               id="seconds"
               onChange={this.handleChange}
               required
-              style={{width: 400 }}
+              style={{width: 300, float: "none" }}
             />
             </div>
           </form>
-        </div>
+         </div> 
+        
         <div>
           <p className ="text-center">
             <button className = "btn-danger" onClick={this.handleAdd} style={{margin: 10, borderRadius: 50 }}> 
@@ -135,6 +135,13 @@ var Track = React.createClass({
           {/*Here we bring in the child-element to render the table of times*/}
           <Times  passTimes= {this.state.times}/>
         </div>
+        <p className ="text-center"style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}}> 
+           What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
+           We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
+             <Link to={"resources"}>
+               <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Workout Resources</button>
+             </Link>
+          </p>           
       </div>
     );
   }
