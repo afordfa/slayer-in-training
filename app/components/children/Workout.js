@@ -2,6 +2,7 @@
 var React = require("react");
 var axios = require("axios");
 import {Link} from "react-router";
+var Timer = require("./workout/Timer.js");
 
 // Here we include all of the sub-components
 
@@ -133,14 +134,15 @@ var Workout = React.createClass({
             <button className = "btn-danger" onClick={this.handleStart} style={{margin: 10, borderRadius: 50 }}> Ready. Set. Slay!</button> 
                         
               </p></div>
+              <p className ="text-center">
+                <div>
+                  <Timer />
+                </div>
+              </p>
         <p className ="text-center">
 
           <Link to={"track"}> 
             <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Track Progress</button>
-          </Link>  
-          
-          <Link to={"timer"}> 
-            <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Timer</button>
           </Link>  
         </p>        
         <div idName= "track"> <p className ="text-center" style = {{fontSize: 25, fontFamily: "fantasy"}} > Better. Faster. Stronger. Outrun the demons. </p></div> 
