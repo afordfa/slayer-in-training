@@ -11,7 +11,7 @@ var axios = require("axios");
 var Track = React.createClass({
   getInitialState: function() {
     var value = new Date().toISOString();
-    return { times: [], distance: "1 mile", minutes: 0, seconds: 0, value: value };
+    return { times: [], distance: "1 mile", minutes: 0, seconds: 0, value: value, user: 0 };
     this.getTimes = this.getTimes.bind(this);
   },
 
@@ -31,12 +31,13 @@ var Track = React.createClass({
 
   componentDidMount: function(){
     this.getTimes();
+
   },
 
   componentDidUpdate: function(){
     // Access ISO String and formatted values from the DOM. 
     var hiddenInputElement = document.getElementById("example-datepicker");
-    
+    var getUrl = "/api/users/" + this.props.id;
   },
   handleAdd: function(){
 
@@ -45,15 +46,16 @@ var Track = React.createClass({
       distance: this.state.distance,
       minutes: parseInt(this.state.minutes),
       seconds: parseInt(this.state.seconds),
-      UserId: 1
+      UserId: this.props.username
     }
     var url = "/api/tracker/" + data.UserId;
-    axios.post("/api/tracker/1",  data )
+    axios.post(url,  data )
     this.getTimes();
   },
 
   getTimes: function() {
-    axios.get("/api/tracker").then((res) => {
+    var trackUrl = "api/tracker/" + this.props.username;
+    axios.get(trackUrl).then((res) => {
       this.setState({ times: res.data });
       console.log(res.data);
     });

@@ -1,9 +1,9 @@
 use slayer_db;
 
 
-INSERT INTO Users (name, email, password, createdAt, updatedAt)
+INSERT INTO Users (name, fbId, createdAt, updatedAt)
 VALUES 
-("Buffy Summers", "buffy@example.com", "slayallday", NOW(), NOW()),
-("Rupert Giles", "rupert@example.com", "watcher", NOW(), NOW()),
-("Willow Rosenberg", "willow@example.com", "wallflower", NOW(), NOW()),
-("Xander Harris", "xander@example.com", "loyalfriend", NOW(), NOW());
+("Buffy Summers", "1412524523452345", NOW(), NOW()),
+("Rupert Giles", "7597890245039390", NOW(), NOW()),
+("Willow Rosenberg", "8574967463856763", NOW(), NOW()),
+("Xander Harris", "7563856341950774", NOW(), NOW());
