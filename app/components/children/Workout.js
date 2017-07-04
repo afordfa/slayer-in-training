@@ -106,7 +106,7 @@ var Workout = React.createClass({
     return (
 
       <div>
-        <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
+        <div className="text-center" idName="subHeader"> <h3 idName="welcome" style = {{fontFamily:"Jolly Lodger", fontSize:45, color: "#800000"}} >Welcome SLAYER!</h3> 
           Ready to train? 
         </div> 
            <div className="text-center"> 
@@ -134,25 +134,27 @@ var Workout = React.createClass({
             <button className = "btn-danger" onClick={this.handleStart} style={{margin: 10, borderRadius: 50 }}> Ready. Set. Slay!</button> 
                         
               </p></div>
-              <p className ="text-center">
-                <div>
-                  <Timer />
-                </div>
-              </p>
+
+     
+        <div idName= "track"> <p className ="text-center" style = {{fontSize: 25, fontFamily: "fantasy"}} > Better. Faster. Stronger. Outrun the demons. </p></div> 
+              
+{/*timer from timer and clock*/}
+              <div className>
+                <p>
+                  <Timer/>
+                </p>
+              </div>
         <p className ="text-center">
 
           <Link to={"track"}> 
             <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Track Progress</button>
           </Link>  
-        </p>        
-        <div idName= "track"> <p className ="text-center" style = {{fontSize: 25, fontFamily: "fantasy"}} > Better. Faster. Stronger. Outrun the demons. </p></div> 
-
-
+        </p>   
           <p className ="text-center"style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}}> 
            What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
            We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
              <Link to={"resources"}>
-               <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Workout Resources</button>
+               <button className = "btn-danger" style={{margin: 10, borderRadius: 50}}> Workout Resources</button>
              </Link>
           </p>          
       </div>

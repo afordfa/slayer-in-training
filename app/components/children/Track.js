@@ -130,6 +130,8 @@ var Track = React.createClass({
             <button className = "btn-danger" onClick={this.handleAdd} style={{margin: 10, borderRadius: 50 }}> 
               add new run 
             </button> 
+            
+              <Link to={"workout"}><button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Back to Workout </button></Link>  
           </p>
         </div>
 
@@ -137,6 +139,7 @@ var Track = React.createClass({
           {/*Here we bring in the child-element to render the table of times*/}
           <Times  passTimes= {this.state.times}/>
         </div>
+      
         <p className ="text-center"style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}}> 
            What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
            We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>

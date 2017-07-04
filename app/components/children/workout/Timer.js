@@ -30,27 +30,10 @@ var Timer = React.createClass({
       <div className="text-center">
         <div className="panel-body text-center">
           <form>
-            <div className="form-group">
-              <h4 className="">
-                <strong>Minutes</strong>
-              </h4>
-              {/*
-                  I DON'T KNOW HOW TO MAKE THIS INPUT NARROWER! PLEASE MAKE IT PRETTY!!!!
-              */}
-              <input
+            <div className="form-group" style = {{fontWeight: "bold"}}>
+               
 
-                type="number"
-                min="1"
-                value={this.state.duration}
-                className="form-control"
-                id="duration"
-                onChange={this.handleChange}
-                required
-              />
-
-              <h4>
-                <strong>Time Type</strong>
-              </h4>
+              &nbsp; Timers &nbsp;
               <select 
               name="timers"
               value={this.state.timerType}
@@ -61,6 +44,17 @@ var Timer = React.createClass({
                 <option value="meditate">Meditation (Count Down)</option>
                 <option value="run">Run Timer (Count Up)</option>
               </select>
+              
+              &nbsp; Minutes &nbsp;
+               <input
+                type="number"
+                min="1"
+                value={this.state.duration}
+                id="duration"
+                onChange={this.handleChange}
+                required
+                style ={{width: 300 }}
+              />
             </div>
           </form>
         </div>

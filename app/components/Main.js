@@ -35,7 +35,7 @@ render: function() {
     });
     return(
       <div className= "mainContainer" style= {{backgroundColor: "#f1e9d2"}} >
-        <div className="jumbotron" style={{backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 75, textAlign: "Center"}}>
+        <div className="jumbotron" style={{backgroundColor: "black", color: "#800000", borderStyle: "solid", borderWidth: 0, borderRadius: 75, textAlign: "Center"}}>
            <h1 style={{fontFamily: "New Rocker", fontStyle: "Cursive", fontSize: 78 }}> Slayer in Training </h1>
             <p className="text-center">Are you ready to reach your full potential?</p>             
         </div>
@@ -43,7 +43,7 @@ render: function() {
           {children} 
         </div>
             <div className="footer" style={{backgroundColor: "#4d4d4d", color: "#f1e9d2", borderStyle: "solid", borderWidth: 0,  textAlign: "Center"}}>     
-            &copy; The Scoobies: Anita Ford, Leigh Fisher 
+            &copy; The Scoobies
             </div>
       </div>
     )
