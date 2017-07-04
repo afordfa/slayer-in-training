@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {Link} from "react-router";
 import {browserHistory} from 'react-router';
+var axios = require("axios");
 
 var Login = React.createClass({
 
@@ -18,7 +19,7 @@ var Login = React.createClass({
       FB.AppEvents.logPageView();
       FB.Event.subscribe('auth.statusChange', function(response) {
         if (response.authResponse) {
-          this.checkLoginState();
+          // this.checkLoginState();
         } else {
           console.log('---->User cancelled login or did not fully authorize.');
         }
@@ -44,6 +45,22 @@ var Login = React.createClass({
       console.log(this.props.username);
       console.log(response.id)
       this.props.setUser(response.id);
+      var getUrl = "/api/users/" + response.id;
+      
+      var data = {
+      name: response.name,
+      fbId: response.id
+      }
+
+      axios.get(getUrl).then((res) => {
+        console.log(res);
+        console.log("response id: " + response.id);
+        if(!res.data) {
+          var postUrl = "/api/users";
+          axios.post(postUrl, data);
+        }
+      })
+
       console.log('Successful login for: ' + response.name);
       browserHistory.push('/workout');
     }.bind(this));
@@ -51,6 +68,7 @@ var Login = React.createClass({
 
   // This is called with the results from from FB.getLoginStatus().
   statusChangeCallback: function(response) {
+    console.log("response here: " + response);
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       this.testAPI();
@@ -89,7 +107,9 @@ var Login = React.createClass({
           <p>Ready to train?</p> 
             <p className ="text-center">
               
-                <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }} onClick={this.handleClick} onlogin={this.checkLoginState}> Login With Facebook</button>
+
+                <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }} onClick={this.handleClick}> Login With Facebook</button>
+
                 <div id="status"></div>
             </p>
             <div className ="text-center" style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}} > 

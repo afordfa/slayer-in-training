@@ -1,5 +1,6 @@
 // Include React
 var React = require("react");
+var axios = require("axios");
 
 // Here we include all of the sub-components
 
@@ -16,7 +17,15 @@ var Main = React.createClass({
   },
 
   setUser: function(user){
-    this.setState({username: user});
+    console.log("user: " + user);
+    var getUrl = "/api/users/" + user;
+    axios.get(getUrl).then((res) => {
+      console.log("set user");
+      console.log(res);
+      console.log("new id: " + res.data.id)
+      this.setState({username: res.data.id});
+    })
+    
   },
 
 render: function() {
