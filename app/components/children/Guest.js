@@ -41,7 +41,7 @@ var Guest = React.createClass({
         </div> 
         <div idName=  "guestWorkout"> 
           <div className ="text-center"> 
-           <h1> Sample Full Buffy Workout</h1>
+           <h1 style={{fontFamily:"Fantasy"}}> Sample Full Buffy Workout</h1>
             <div className ="text-center">   
               Standing Side Stretch (Mobility) <br></br>
               3 Sun Salutations (Mobility)<br></br> 
@@ -52,7 +52,7 @@ var Guest = React.createClass({
             </div>
           </div>
         </div>
-          <p className ="text-center"> 
+          <p className ="text-center" style={{margin: 10, padding: 10}}> 
            Like what you slayed? Join the Slayer Army!  <br></br>
              <Link to={"login"}>
                <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Signup to Slay!</button>

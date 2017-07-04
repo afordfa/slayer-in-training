@@ -98,17 +98,18 @@ var Login = React.createClass({
   return (
 
     <div>
-      <p className="text-center">
-      Not your average workout app! <br></br>
-      Once you login, choose how much time you have to train, and what you'd like to focus on today, 
+      <h3 className="text-center"> Not your average workout app!</h3> <br></br>
+       <p className="text-center">Once you login, choose how much time you have to train, and what you'd like to focus on today, <br></br>
       and let Slayer in Training generate a workout and/or meditation just for you! <br></br>
-      Not sure what you want to focus on? Choose The Full Buffy for a complete mind-body workout including 
+      Not sure what you want to focus on?<br></br> Choose The Full Buffy for a complete mind-body workout including 
       Mobility, Endurance, Strength, and Meditation.</p>        
         <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
           <p>Ready to train?</p> 
             <p className ="text-center">
               
-                <button className = "btn-danger" onClick={this.handleClick}> Login With Facebook</button>
+
+                <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }} onClick={this.handleClick}> Login With Facebook</button>
+
                 <div id="status"></div>
             </p>
             <div className ="text-center" style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}} > 
