@@ -42,14 +42,14 @@ var Guest = React.createClass({
         <div idName=  "guestWorkout"> 
           <div className ="text-center"> 
            <h1> Sample Full Buffy Workout</h1>
-            <ul className ="text-center">   
-              <li>Standing Side Stretch (Mobility) </li>
-              <li>3 Sun Salutations (Mobility)</li> 
-              <li>Standing Baby Cradle Hip Stretch (Mobility)</li>
-              <li>5 Minute AMRP: 10 push-ups, 15 sit-ups, 10 squats, 20 Bicycle Crunches, 10 Jump Squats (Strength)</li>
-              <li>5 minutes Walk or Run (Endurance)</li>
-              <li>5 minute Breath Count Meditation (inhale for count of 6, hold for 2, exhale 6, hold 2)</li> 
-            </ul>
+            <div className ="text-center">   
+              Standing Side Stretch (Mobility) <br></br>
+              3 Sun Salutations (Mobility)<br></br> 
+              Standing Baby Cradle Hip Stretch (Mobility)<br></br>
+              5 Minute AMRP: 10 push-ups, 15 sit-ups, 10 squats, 20 Bicycle Crunches, 10 Jump Squats (Strength)<br></br>
+              5 minutes Walk or Run (Endurance)<br></br>
+              5 minute Breath Count Meditation (inhale for count of 6, hold for 2, exhale 6, hold 2) <br></br>
+            </div>
           </div>
         </div>
           <p className ="text-center"> 
