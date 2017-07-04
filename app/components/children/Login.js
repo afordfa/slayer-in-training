@@ -41,9 +41,12 @@ var Login = React.createClass({
     console.log('Welcome! Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log(response);
+      console.log(this.props.username);
+      console.log(response.id)
+      this.props.setUser(response.id);
       console.log('Successful login for: ' + response.name);
       browserHistory.push('/workout');
-    });
+    }.bind(this));
   },
 
   // This is called with the results from from FB.getLoginStatus().
