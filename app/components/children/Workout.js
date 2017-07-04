@@ -108,7 +108,13 @@ var Workout = React.createClass({
         <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
           Ready to train? 
         </div> 
-        <div idName=  "howLong"> <p className ="text-center"> How do you want to train today?
+           <div className="text-center"> 
+
+               {/*Link to the workout details*/}
+                 <Details workout= {this.state.workout} />
+        
+           </div>        
+        <div idName = "howLong"><p className ="text-center"> How do you want to train today?
           <select 
             name="workouts"
             value={this.state.selection}
@@ -118,7 +124,7 @@ var Workout = React.createClass({
           >
                 <option value="15m" time="15" type="Mobility">15 Minutes Mobility</option>
                 <option value="30m" time="30" type="Mobility">30 Minutes Mobility</option>
-                <option value="15s" time="15" type="Strength" >15 Minutes Strength</option>
+                <option value="15s" time="15" type="Strength">15 Minutes Strength</option>
                 <option value="30s" time="30" type="Strength">30 Minutes Strength</option>
                 <option value="30e" time="30" type="Endurance">30 Minutes Endurance</option>
                 <option value="45e" time="45" type="Endurance">45 Minutes Endurance</option>
@@ -142,12 +148,7 @@ var Workout = React.createClass({
         <div className="text-center" idName="subHeader"> 
           Ready. Set. SLAY!  
         </div> 
-        <div className="text-center"> 
 
-      {/*Link to the workout details*/}
-          <Details workout= {this.state.workout} />
-        
-        </div>
           <p className ="text-center"> 
            What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
            We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
