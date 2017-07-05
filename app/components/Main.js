@@ -12,7 +12,7 @@ var API = require("./utils/API");
 var Main = React.createClass({
 
   getInitialState: function() {
-    return { username: 'rwar' };
+    return { username: '1' };
     this.setUser = this.setUser.bind(this);
   },
 

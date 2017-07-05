@@ -69,10 +69,10 @@ var Track = React.createClass({
         <div idName=  "distance" style ={{textAlign: "center" }}> 
           <form style={{ textAlign: "center" }} >
 
-            <div className="form-group" style ={{textAlign: "center" }}>
-              <h4 className="">
-                Date &nbsp;
-                  <DatePicker id="example-datepicker" style={{width: 300, float: "none" }} value={this.state.value} onChange={this.handleDateChange} />
+            <div className="form-group" style ={{textAlign: "center", display: "inline-block" }}>
+              <h4 className="" style={{display: "inline-block"}}>
+                Date
+                  <DatePicker id="example-datepicker" style={{display: "inline-block", width: 300, float: "none" }} value={this.state.value} onChange={this.handleDateChange} />
               </h4>
               <div><h4 className="">
                 <strong>Distance</strong> &nbsp;
@@ -95,8 +95,9 @@ var Track = React.createClass({
          
           <form>
           {/*I HAVE NO IDEA HOW TO GET THESE TO APPEAR SIDE-BY-SIDE!!! */}
-            <div> <h4 className="" >
-              <strong>Minutes</strong><input
+            <div> <h4 className="" style={{display: "inline-block"}}>
+              <strong>Minutes </strong>
+              <input
               type="number"
               min="1"
               value={this.state.minutes}
@@ -104,11 +105,11 @@ var Track = React.createClass({
               id="minutes"
               onChange={this.handleChange}
               required
-              style={{width: 300, textAlign: "center", float: "none"}}
+              style={{width: 300, textAlign: "center", float: "none", display: "inline-block"}}
             /> </h4> 
 
-            <h4 className="">
-              <strong>Seconds</strong>
+            <h4 className="" style={{marginLeft: 20, display: "inline-block"}}>
+              <strong>Seconds  </strong>
             </h4>
             <input
               type="number"
@@ -119,7 +120,7 @@ var Track = React.createClass({
               id="seconds"
               onChange={this.handleChange}
               required
-              style={{width: 300, float: "none" }}
+              style={{marginLeft: 5, width: 300, textAlign: "center", float: "none", display: "inline-block" }}
             />
             </div>
           </form>

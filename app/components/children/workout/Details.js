@@ -25,7 +25,7 @@ var Details = React.createClass({
   render: function() {
     // this.buildWorkout();
     return (
-      <div>
+      <div style= {{display: "inline-block"}}>
         <table>
           <thead>
             <tr>
