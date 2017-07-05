@@ -15,8 +15,8 @@ var Details = React.createClass({
 
     return list.map(item => (
         <tr className= "text-center">
-          <td>{item.title}</td>
-          <td>{item.minutes} minutes</td>
+          <td>{item.title} &nbsp;</td>
+          <td>{item.minutes} &nbsp; minutes</td>
         </tr>
       ));
   },
