@@ -4,6 +4,8 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import {Link} from "react-router";
 import {browserHistory} from 'react-router';
 var axios = require("axios");
+var fbAppId = process.env.APP_ID;
+console.log(fbAppId);
 
 var Login = React.createClass({
 
@@ -11,7 +13,7 @@ var Login = React.createClass({
   componentDidMount: function() {
     window.fbAsyncInit = function() {
       FB.init({
-        appId      : '960505730755691',
+        appId      : fbAppId,
         cookie     : true,
         xfbml      : true,
         version    : 'v2.8'
