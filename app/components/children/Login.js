@@ -100,11 +100,11 @@ var Login = React.createClass({
   return (
 
     <div>
-      <h3 className="text-center"> Not your average workout app!</h3> <br></br>
-       <p className="text-center">Once you login, choose how much time you have to train, and what you'd like to focus on today, <br></br>
-      and let Slayer in Training generate a workout and/or meditation just for you! <br></br>
-      Not sure what you want to focus on?<br></br> Choose The Full Buffy for a complete mind-body workout including 
-      Mobility, Endurance, Strength, and Meditation.</p>        
+      <h3 className="text-center" style = {{fontFamily:"Jolly Lodger", fontSize: 45}}> Not your average workout app!</h3> <br></br>
+       <p className="text-center">Once you login, choose how much time you have to train, and what you'd like to focus on, <br></br>
+      and let us generate a unique, slayer worthy workout just for you! <br></br>
+      Not sure what you want to focus on?<br></br> Choose The Full Buffy for a full body workout including 
+      Mobility, Endurance, and Strength.</p>        
         <div className="text-center" idName="subHeader"> <h3 idName="welcome">Welcome Slayer!</h3> 
           <p>Ready to train?</p> 
             <p className ="text-center">
@@ -114,8 +114,8 @@ var Login = React.createClass({
 
                 <div id="status"></div>
             </p>
-            <div className ="text-center" style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}} > 
-              Not sure if you're the chosen one? Find your potential with a sample of our Full Buffy Workout! &nbsp; <br></br>
+            <div className ="text-center" style={ {padding: 10, margin: 10, backgroundColor: "black", color: "#cc0000", borderStyle: "solid", borderWidth: 0, borderRadius: 50}} > 
+              Not sure if you're the chosen one? Unlock your potential with a sample of our Full Buffy Workout! &nbsp; <br></br>
                 <Link to={"guest"}> 
                   <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Sample Workout </button>
                 </Link>         

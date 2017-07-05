@@ -35,9 +35,15 @@ render: function() {
     });
     return(
       <div className= "mainContainer" style= {{backgroundColor: "#f1e9d2"}} >
-        <div className="jumbotron" style={{backgroundColor: "black", color: "#800000", borderStyle: "solid", borderWidth: 0, borderRadius: 75, textAlign: "Center"}}>
-           <h1 style={{fontFamily: "New Rocker", fontStyle: "Cursive", fontSize: 78 }}> Slayer in Training </h1>
-            <p className="text-center">Are you ready to reach your full potential?</p>             
+        <div className="jumbotron" 
+          style={{ backgroundColor: "black", 
+          color: "#cc0000", 
+          borderStyle: "solid", 
+          borderWidth: 0,  
+          textAlign: "Center",
+          }}>
+           <h1 style={{fontFamily: "New Rocker", fontStyle: "Cursive", fontSize: 70 }}> Slayer in Training </h1>
+            <p className ="text-center" style = {{fontSize: 25, fontFamily: "fantasy", marginTop: 10}} > Better. Faster. Stronger. Outrun the demons. </p>             
         </div>
         <div style={{paddingBottom: 60}}>
           {children} 

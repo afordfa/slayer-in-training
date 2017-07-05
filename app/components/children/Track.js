@@ -75,7 +75,7 @@ var Track = React.createClass({
                   <DatePicker id="example-datepicker" style={{display: "inline-block", width: 300, float: "none" }} value={this.state.value} onChange={this.handleDateChange} />
               </h4>
               <div><h4 className="">
-                <strong>Distance</strong> &nbsp;
+                <strong>Track a workout or a run</strong> &nbsp;
               
                 <select 
                 name="distance"
@@ -83,9 +83,22 @@ var Track = React.createClass({
                 id="distance"
                 onChange={this.handleChange}
                 >
+                  <option value="Slay">Slay</option>
+                  <option value="0.5 miles"> 0.5 miles</option>
                   <option value="1 mile">1 mile</option>
                   <option value="2 miles">2 miles</option>
                   <option value="5K">5K</option>
+                  <option value="4 miles">4 miles</option>
+                  <option value="5 miles">5 miles</option>
+                  <option value="6 miles">6 miles</option>
+                  <option value="10K">10K</option>
+                  <option value="7 miles">7 miles</option>
+                  <option value="8 miles">8 miles</option>
+                  <option value="9 miles">9 miles</option>
+                  <option value="10 miles">10 miles</option>
+                  <option value="11 miles">11 miles</option>
+                  <option value="12 miles">12 miles</option>
+                  <option value="13.1 miles">13.1 miles (Half Marathon)</option>                  
                 </select> </h4>
               </div>   
             </div>
@@ -129,7 +142,7 @@ var Track = React.createClass({
         <div>
           <p className ="text-center">
             <button className = "btn-danger" onClick={this.handleAdd} style={{margin: 10, borderRadius: 50 }}> 
-              add new run 
+              Track 
             </button> 
             
               <Link to={"workout"}><button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Back to Workout </button></Link>  
@@ -142,8 +155,8 @@ var Track = React.createClass({
         </div>
       
         <p className ="text-center"style={ {padding: 10, margin: 10, backgroundColor: "black", color: "red", borderStyle: "solid", borderWidth: 0, borderRadius: 50}}> 
-           What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
-           We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br>
+           What the hellmouth is a Mountain Climber? Not to worry potential Slayer! <br></br>
+           We've compiled links to tutorials for you. You'll be apocolypse ready in no time!  <br></br>
              <Link to={"resources"}>
                <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Workout Resources</button>
              </Link>

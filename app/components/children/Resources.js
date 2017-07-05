@@ -33,8 +33,7 @@ var Resources = React.createClass({
       <div className="resource-container">   
           <div idName= "links"> 
             <div className ="text-center">
-              <h4 className="resource-header">What the heck is a Mountain Climber? Not to worry potential Slayer! <br></br>
-                  We've compiled links to tutorials for some of the moves for you. You'll be apocolypse ready in no time!  <br></br></h4> 
+              <h4 className="resource-header"> Alas, we don't have a Giles, but we do have the interwebs!</h4> 
               <a rel="yoga_mobility" target="_blank" href="https://www.yogajournal.com/poses">Yoga Journal Pose Library</a> <br></br>
               <a rel="meditation" target="_blank" href="https://shambhala.org/what-is-meditation/">Meditation</a><br></br>
               <a target="_blank" href="https://www.youtube.com/watch?v=edOw-bA1Avs">Crossfit Lingo</a><br></br>
@@ -42,9 +41,12 @@ var Resources = React.createClass({
               <a href="https://www.youtube.com/watch?v=dZgVxmf6jkA">Burpees for Beginners</a><br></br>
               <a target="_blank" href="https://breakingmuscle.com/fitness/the-tabata-revolution-explained-what-why-and-how-to-tabata">What is a Tabata Interval?</a><br></br>
                          
-              <p className ="text-center">
-              <Link to={"workout"}><button className = "btn-danger"> Ready. Set. Slay! </button></Link>  
-        </p>
+        <p className ="text-center"style={ {padding: 10, margin: 10, backgroundColor: "black", color: "#cc0000", borderStyle: "solid", borderWidth: 0, borderRadius: 50}}> 
+           Are you ready to reach your potential?<br></br>
+             <Link to={"workout"}>
+               <button className = "btn-danger" style={{margin: 10, borderRadius: 50 }}> Back to Workout</button>
+             </Link>
+          </p> 
               </div>
             </div>
       </div>
