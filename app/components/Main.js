@@ -39,10 +39,10 @@ render: function() {
            <h1 style={{fontFamily: "New Rocker", fontStyle: "Cursive", fontSize: 78 }}> Slayer in Training </h1>
             <p className="text-center">Are you ready to reach your full potential?</p>             
         </div>
-        <div>
+        <div style={{paddingBottom: 60}}>
           {children} 
         </div>
-            <div className="footer" style={{backgroundColor: "#4d4d4d", color: "#f1e9d2", borderStyle: "solid", borderWidth: 0,  textAlign: "Center"}}>     
+            <div className="footer" style={{backgroundColor: "#4d4d4d", color: "#f1e9d2", borderStyle: "solid", borderWidth: 0,  textAlign: "Center",  position: "fixed", left: 0, bottom:0, right: 0}}>     
             &copy; The Scoobies
             </div>
       </div>

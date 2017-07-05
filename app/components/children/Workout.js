@@ -108,7 +108,7 @@ var Workout = React.createClass({
   render: function() {
     return (
 
-      <div>
+      <div style={{paddingBottom: 60}}>
         <div className="text-center" idName="subHeader"> <h3 idName="welcome" style = {{fontFamily:"Jolly Lodger", fontSize:45, color: "#800000"}} >Welcome SLAYER!</h3> 
           Ready to train? 
         </div> 
