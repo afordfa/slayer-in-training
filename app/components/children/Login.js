@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import {Link} from "react-router";
 import {browserHistory} from 'react-router';
+import keys from '../utils/keys.js';
 var axios = require("axios");
-var fbAppId = process.env.APP_ID;
+var fbAppId = keys.FbApp;
 console.log(fbAppId);
 
 var Login = React.createClass({
@@ -21,7 +22,6 @@ var Login = React.createClass({
       FB.AppEvents.logPageView();
       FB.Event.subscribe('auth.statusChange', function(response) {
         if (response.authResponse) {
-          // this.checkLoginState();
         } else {
           console.log('---->User cancelled login or did not fully authorize.');
         }
